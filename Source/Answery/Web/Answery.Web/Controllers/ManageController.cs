@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using Answery.Web.Models;
+using Answery.Web.ViewModels;
 
 namespace Answery.Web.Controllers
 {
