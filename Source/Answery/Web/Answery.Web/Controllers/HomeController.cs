@@ -1,21 +1,30 @@
 ﻿namespace Answery.Web.Controllers
 {
+    using System.Linq;
     using System.Web.Mvc;
 
     using Config;
+    using Data.Common;
+    using Data.Models;
+    using Answery.Infrastructure.Mapping;
+    using ViewModels;
 
     public class HomeController : Controller
     {
-        //private IService service;
+        private IDbRepository<Car> cars; 
 
-        public HomeController()
+        public HomeController(IDbRepository<Car> cars)
         {
-            //this.service = inputService;
+            this.cars = cars;
         }
 
         public ActionResult Index()
         {
-            return View();
+            var myCar = cars.All()
+                .AsQueryable()
+                .To<CarViewModel>()
+                .FirstOrDefault();
+            return View(myCar);
         }
     }
 }

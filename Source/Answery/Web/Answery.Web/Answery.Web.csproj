@@ -52,6 +52,10 @@
       <HintPath>..\..\packages\Autofac.Mvc5.3.3.4\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="AutoMapper, Version=4.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\AutoMapper.4.2.0\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Glimpse.AspNet, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Glimpse.AspNet.1.8.0\lib\net45\Glimpse.AspNet.dll</HintPath>
       <Private>True</Private>
@@ -215,6 +219,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\AccountViewModels.cs" />
+    <Compile Include="ViewModels\CarViewModel.cs" />
     <Compile Include="ViewModels\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -288,6 +293,10 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Data\Answery.Data.Common\Answery.Data.Common.csproj">
+      <Project>{e6c5c8c2-fe77-461f-b68e-10866dc5dcaf}</Project>
+      <Name>Answery.Data.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Data\Answery.Data.Models\Answery.Data.Models.csproj">
       <Project>{bc1ae830-828f-40ec-809d-59fb14648dbe}</Project>
       <Name>Answery.Data.Models</Name>
@@ -295,6 +304,10 @@
     <ProjectReference Include="..\..\Data\Answery.Data\Answery.Data.csproj">
       <Project>{57308728-dfcc-4c5c-b4f4-0cb623a5a1e7}</Project>
       <Name>Answery.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Answery.Infrastructure\Answery.Infrastructure.csproj">
+      <Project>{446ce8d7-88ab-473e-8eba-5f1cd9ab71cc}</Project>
+      <Name>Answery.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

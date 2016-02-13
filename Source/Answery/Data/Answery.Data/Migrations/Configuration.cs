@@ -4,6 +4,7 @@ namespace Answery.Data.Migrations
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+    using Models;
 
     public sealed class Configuration : DbMigrationsConfiguration<Answery.Data.AnsweryDbContext>
     {
@@ -28,6 +29,15 @@ namespace Answery.Data.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+            context.Cars.Add(new Car()
+            {
+                Brand = "Ford",
+                Color = "Grey",
+                Price = 12000,
+                PlateNumber = "XX33322"
+            });
+            context.SaveChanges();
         }
     }
 }
