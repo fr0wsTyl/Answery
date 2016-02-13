@@ -27,13 +27,16 @@
             // OPTIONAL: Enable property injection into action filters.
             builder.RegisterFilterProvider();
 
+            RegisterInjections(builder);
+
             // Set the dependency resolver to be Autofac.
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
         }
-        public static void RegisterInjections()
-        {
 
+        private static void RegisterInjections(ContainerBuilder builder)
+        {
+            //builder.Register(x => new Service()).As<IService>().InstancePerRequest();
         }
     }
 }

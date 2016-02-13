@@ -1,13 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-namespace Answery.Web.Controllers
+﻿namespace Answery.Web.Controllers
 {
+    using System.Web.Mvc;
+
+    using Config;
+
     public class HomeController : Controller
     {
+        //private IService service;
+
+        public HomeController()
+        {
+            //this.service = inputService;
+        }
+
         public ActionResult Index()
         {
             return View();
