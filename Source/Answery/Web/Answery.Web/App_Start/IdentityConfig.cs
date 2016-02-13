@@ -1,4 +1,4 @@
-﻿namespace Answery.Web
+﻿namespace Answery.Web.Config
 {
     using System;
     using System.Security.Claims;

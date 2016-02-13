@@ -12,7 +12,7 @@
     using Microsoft.Owin.Security;
     using Answery.Web.ViewModels;
     using Answery.Data.Models;
-
+    using Config;
     [Authorize]
     public class AccountController : Controller
     {

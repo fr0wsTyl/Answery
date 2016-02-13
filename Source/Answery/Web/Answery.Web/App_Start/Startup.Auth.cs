@@ -1,13 +1,11 @@
-﻿namespace Answery.Web
+﻿namespace Answery.Web.Config
 {
     using System;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.Owin;
     using Microsoft.Owin;
     using Microsoft.Owin.Security.Cookies;
-    using Microsoft.Owin.Security.Google;
     using Owin;
-    using Answery.Web.ViewModels;
     using Answery.Data;
     using Answery.Data.Models;
 
