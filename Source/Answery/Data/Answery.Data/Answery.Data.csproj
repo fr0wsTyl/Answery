@@ -58,6 +58,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AnsweryDbContext.cs" />
+    <Compile Include="Migrations\201602130857407_InitialCreate.cs" />
+    <Compile Include="Migrations\201602130857407_InitialCreate.Designer.cs">
+      <DependentUpon>201602130857407_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -65,10 +70,19 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Answery.Data.Common\Answery.Data.Common.csproj">
+      <Project>{e6c5c8c2-fe77-461f-b68e-10866dc5dcaf}</Project>
+      <Name>Answery.Data.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Answery.Data.Models\Answery.Data.Models.csproj">
       <Project>{bc1ae830-828f-40ec-809d-59fb14648dbe}</Project>
       <Name>Answery.Data.Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201602130857407_InitialCreate.resx">
+      <DependentUpon>201602130857407_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
