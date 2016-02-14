@@ -29,15 +29,6 @@ namespace Answery.Data.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-
-            context.Cars.Add(new Car()
-            {
-                Brand = "Ford",
-                Color = "Grey",
-                Price = 12000,
-                PlateNumber = "XX33322"
-            });
-            context.SaveChanges();
         }
     }
 }

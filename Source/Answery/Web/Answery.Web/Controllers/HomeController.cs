@@ -11,20 +11,23 @@
 
     public class HomeController : Controller
     {
-        private IDbRepository<Car> cars; 
+        //private IDbRepository<Car> cars; 
 
-        public HomeController(IDbRepository<Car> cars)
-        {
-            this.cars = cars;
-        }
+        //public HomeController(IDbRepository<Car> cars)
+        //{
+        //    this.cars = cars;
+        //}
 
         public ActionResult Index()
         {
-            var myCar = cars.All()
-                .AsQueryable()
-                .To<CarViewModel>()
-                .FirstOrDefault();
-            return View(myCar);
+            return View();
         }
+
+        //public ActionResult Index()
+        //{
+        //    var carsToShow = cars.All()
+        //        .AsQueryable();
+        //    return View(carsToShow);
+        //}
     }
 }

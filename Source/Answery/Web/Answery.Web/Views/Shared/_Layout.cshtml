@@ -11,23 +11,21 @@
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
+            <div class="navbar-fixed">
+                <nav>
+                    <div class="nav-wrapper">
+                        <a href="#!" class="brand-logo"><img src="~/"</a>
+                        <ul class="right hide-on-med-and-down">
+                            <li><a href="sass.html">Sass</a></li>
+                            <li><a href="badges.html">Components</a></li>
+                            <li class="active"><a href="collapsible.html">JavaScript</a></li>
+                        </ul>
+                        @Html.Partial("_LoginPartial")
+                    </div>
+                </nav>
             </div>
         </div>
+        
     </div>
     <div class="container body-content">
         @RenderBody()
@@ -38,7 +36,7 @@
     </div>
 
     @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/materialize")
     @RenderSection("scripts", required: false)
 </body>
 </html>

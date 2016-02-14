@@ -13,9 +13,7 @@
             : base("AnsweryDbContext", throwIfV1Schema: false)
         {
         }
-
-        public IDbSet<Car> Cars { get; set; }
-
+        
         public static AnsweryDbContext Create()
         {
             return new AnsweryDbContext();
