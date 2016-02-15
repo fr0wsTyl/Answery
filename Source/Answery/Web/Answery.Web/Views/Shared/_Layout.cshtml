@@ -4,27 +4,37 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title | Answery</title>
-    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">  
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 <body>
-    <div class="container">
+    <div class="">
         <div class="navbar-material">
             <nav>
                 <div class="nav-wrapper blue-grey">
                     @*<a href="~/" class="brand-logo center">
-                        <img src="~/Content/Images/logo.png" alt="Logo"/>
-                        Answery
-                    </a>*@
-                    @Html.ActionLink("Answery", "Index", "Home", new { @class = "brand-logo center"})
+                            <img src="~/Content/Images/logo.png" alt="Logo"/>
+                            Answery
+                        </a>*@
+                    @Html.ActionLink("Answery", "Index", "Home", new { @class = "brand-logo center" })
                     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                     <ul class="hide-on-med-and-down">
                         <li>@Html.ActionLink("Home", "Index", "Home")</li>
                         <li>@Html.ActionLink("Blog", "Index", "Blog")</li>
                     </ul>
                     <ul class="side-nav" id="mobile-demo">
+                        @if (Request.IsAuthenticated)
+                        {
+                            <li class="black-text">Hi @HttpContext.Current.User.Identity.Name!</li>
+                            <li>@Html.ActionLink("Account", "Index", "Account")</li>
+                        }
+                        else
+                        {
+                            <li>@Html.ActionLink("Register", "Register", "Account")</li>
+                            <li>@Html.ActionLink("Login", "Login", "Account")</li>
+                        }
                         <li>@Html.ActionLink("Home", "Index", "Home")</li>
                         <li>@Html.ActionLink("Blog", "Index", "Blog")</li>
                     </ul>
@@ -33,23 +43,25 @@
             </nav>
         </div>
     </div>
-    <div class="container body-content">
+    <div class="container body-content white-text">
         @RenderBody()
         <hr />
         <footer>
-            <p class="center">&copy; @DateTime.Now.Year - Answery. <a href="https://github.com/fr0wsTyl/Answery">Open-Source project</a>.</p>
+            <p class="center">
+                &copy; @DateTime.Now.Year - Answery. <a href="https://github.com/fr0wsTyl/Answery">Open-Source project</a>.
+            </p>
         </footer>
     </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/materialize")
     <script>
-            $(".button-collapse").sideNav();
+        $(".button-collapse").sideNav();
     </script>
     @section Scripts {
         @*<script>
-            $(".button-collapse").sideNav();
-        </script>*@
+                $(".button-collapse").sideNav();
+            </script>*@
     }
     @RenderSection("scripts", required: false)
 </body>

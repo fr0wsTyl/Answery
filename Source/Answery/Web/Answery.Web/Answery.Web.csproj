@@ -225,6 +225,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\background.jpg" />
     <Content Include="Content\Images\logo.png" />
     <Content Include="Content\materialize.css" />
     <Content Include="favicon.ico" />
