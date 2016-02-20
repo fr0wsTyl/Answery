@@ -28,6 +28,8 @@
         [MaxLength(40)]
         public string LastName { get; set; }
 
+        public string About { get; set; }
+
         public override string UserName { get; set; }
 
         public DateTime CreatedOn { get; set; }

@@ -48,15 +48,19 @@ else
         <div class="card-reveal black-text">
             <p>
                 <span class="card-title grey-text text-darken-4">@Model.Username <i class="mdi-navigation-close right"></i></span>
+                <br/>
                 <span><i class="mdi-action-perm-identity cyan-text text-darken-2"></i> Registered on @Model.CreatedOn.ToString("yyyy MMMM dd")</span>
-                <span><i class="mdi-action-perm-identity cyan-text text-darken-2"></i> First name on @Model.FirstName</span>
-                <span><i class="mdi-action-perm-identity cyan-text text-darken-2"></i> Last name on @Model.LastName</span>
+                <br />
+                <span><i class="mdi-action-perm-identity cyan-text text-darken-2"></i> First name @Model.FirstName</span>
+                <br />
+                <span><i class="mdi-action-perm-identity cyan-text text-darken-2"></i> Last name @Model.LastName</span>
             </p>
 
-            <p>@Model.About.</p>
+            <p>@Model.About</p>
                 
             <p><i class="mdi-action-perm-phone-msg cyan-text text-darken-2"></i> Answered questions: @Model.AnsweredQuestions</p>
-            <p><i class="mdi-communication-email cyan-text text-darken-2"></i> Connected with: @Model.ConnectedWith people</p>
+            <p><i class="mdi-action-perm-phone-msg cyan-text text-darken-2"></i> Unanswered questions: @Model.UnAnsweredQuestions</p>
+            <p>@*<i class="mdi-communication-email cyan-text text-darken-2"></i> Connected with: @Model.ConnectedWith people*@</p>
             <p><i class="mdi-social-cake cyan-text text-darken-2"></i> Age: @Model.Age</p>
         </div>
     </div>

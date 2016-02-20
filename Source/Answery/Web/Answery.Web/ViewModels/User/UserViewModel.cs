@@ -19,14 +19,17 @@
         public string LastName { get; set; }
 
         public int AnsweredQuestions { get; set; }
+
         public int UnAnsweredQuestions { get; set; }
+
+        public string About { get; set; }
 
         public void CreateMappings(IMapperConfiguration configuration)
         {
             configuration.CreateMap<User, UserViewModel>()
-                .ForMember(x => x.AnsweredQuestions, opt => opt.MapFrom(x => x.Questions.FirstOrDefault(q => q.IsAnswered)));
+                .ForMember(x => x.AnsweredQuestions, opt => opt.MapFrom(x => x.Questions.Count(q => q.IsAnswered)));
             configuration.CreateMap<User, UserViewModel>()
-                .ForMember(x => x.UnAnsweredQuestions, opt => opt.MapFrom(x => x.Questions.FirstOrDefault(q => q.IsAnswered == false)));
+                .ForMember(x => x.UnAnsweredQuestions, opt => opt.MapFrom(x => x.Questions.Count(q => q.IsAnswered == false)));
         }
     }
 }
