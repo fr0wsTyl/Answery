@@ -40,8 +40,10 @@
 
         private static void RegisterInjections(ContainerBuilder builder)
         {
+            var servicesAssembly = Assembly.GetAssembly(typeof(IQuestionsService));
+            builder.RegisterAssemblyTypes(servicesAssembly).AsImplementedInterfaces();
+
             builder.Register(x => new AnsweryDbContext()).As<DbContext>().InstancePerRequest();
-            builder.RegisterGeneric(typeof (IQuestionsService)).As(typeof(IQuestionsService)).InstancePerRequest();
             builder.RegisterGeneric(typeof (DbRepository<>)).As(typeof(IDbRepository<>)).InstancePerRequest();
             builder.RegisterGeneric(typeof (DbRepository<>)).As(typeof(IDbRepository<>)).InstancePerRequest();
         }

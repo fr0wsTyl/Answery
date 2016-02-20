@@ -1,4 +1,6 @@
-﻿@{
+﻿@using Answery.Web.ViewModels.Question
+@model Answery.Web.ViewModels.Home.IndexViewModel
+@{
     ViewBag.Title = "Home Page";
 }
 
@@ -43,5 +45,5 @@
 }
 else
 {
-
+    @Html.Partial("QuestionsPartial", @Model.Questions);
 }

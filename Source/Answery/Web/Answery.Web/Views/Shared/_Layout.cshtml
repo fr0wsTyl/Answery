@@ -14,10 +14,7 @@
         <div class="navbar-material">
             <nav>
                 <div class="nav-wrapper grey darken-4">
-                    @*<a href="~/" class="brand-logo center">
-                            <img src="~/Content/Images/logo.png" alt="Logo"/>
-                            Answery
-                        </a>*@
+                    
                     @Html.ActionLink("Answery", "Index", "Home", new { @class = "brand-logo center" })
                     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                     <ul class="hide-on-med-and-down">
@@ -25,6 +22,7 @@
                         <li>@Html.ActionLink("Blog", "Index", "Blog")</li>
                     </ul>
                     <ul class="side-nav" id="mobile-demo">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
                         @if (Request.IsAuthenticated)
                         {
                             <li class="black-text">Hi @HttpContext.Current.User.Identity.Name!</li>
@@ -32,10 +30,10 @@
                         }
                         else
                         {
-                            <li>@Html.ActionLink("Register", "Register", "Account")</li>
                             <li>@Html.ActionLink("Login", "Login", "Account")</li>
+                            <li>@Html.ActionLink("Register", "Register", "Account")</li>
                         }
-                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+
                         <li>@Html.ActionLink("Blog", "Index", "Blog")</li>
                     </ul>
                     @Html.Partial("_LoginPartial")

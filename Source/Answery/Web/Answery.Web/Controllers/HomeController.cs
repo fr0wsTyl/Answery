@@ -7,27 +7,29 @@
     using Data.Common;
     using Data.Models;
     using Answery.Infrastructure.Mapping;
+    using Services.Interfaces;
     using ViewModels;
+    using ViewModels.Home;
+    using ViewModels.Question;
 
     public class HomeController : Controller
     {
-        //private IDbRepository<Car> cars; 
+        private readonly IQuestionsService questionsService;
 
-        //public HomeController(IDbRepository<Car> cars)
-        //{
-        //    this.cars = cars;
-        //}
+        public HomeController(IQuestionsService questionsService)
+        {
+            this.questionsService = questionsService;
+        }
 
         public ActionResult Index()
         {
-            return View();
-        }
+            var questions = questionsService.GetAll();
+            var model = new ViewModels.Home.IndexViewModel()
+            {
+                Questions = questions.To<QuestionViewModel>()
+            };
 
-        //public ActionResult Index()
-        //{
-        //    var carsToShow = cars.All()
-        //        .AsQueryable();
-        //    return View(carsToShow);
-        //}
+            return View(model);
+        }
     }
 }
