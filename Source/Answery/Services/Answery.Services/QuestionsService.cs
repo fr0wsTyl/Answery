@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Data.SqlTypes;
     using System.Linq;
     using Data.Common;
     using Data.Models;
@@ -24,6 +25,16 @@
         public Question GetById(int id)
         {
             return this.questions.All().FirstOrDefault(question => question.Id == id);
+        }
+
+        public IQueryable<Question> GetAllAnsweredBy(string userId)
+        {
+            return this.questions.All().Where(question => question.ReceiverId == userId && question.IsAnswered == false);
+        }
+
+        public IQueryable<Question> GetAllUnAnsweredBy(string userId)
+        {
+            return this.questions.All().Where(question => question.ReceiverId == userId && question.IsAnswered);
         }
     }
 }
