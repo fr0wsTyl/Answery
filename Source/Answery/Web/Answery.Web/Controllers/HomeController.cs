@@ -15,8 +15,7 @@
         {
             this.questionsService = questionsService;
         }
-
-        [Authorize]
+        
         public ActionResult Index()
         {
             var questions = questionsService.GetAllAnsweredBy(User.Identity.GetUserId());

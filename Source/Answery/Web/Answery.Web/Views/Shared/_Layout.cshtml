@@ -21,7 +21,7 @@
                         <li>@Html.ActionLink("Home", "Index", "Home")</li>
                         @if (Request.IsAuthenticated)
                         {
-                            <li>@Html.ActionLink("Answered", "Answered", "Questions")</li>
+                            <li>@Html.ActionLink("Unanswered", "Answered", "Questions")</li>
                             <li>@Html.ActionLink("Asked", "Asked", "Questions")</li>
                             <li>@Html.ActionLink("Profile", "Index", "Manage")</li>
                             <li>@Html.ActionLink("Chat", "Index", "Chat")</li>
