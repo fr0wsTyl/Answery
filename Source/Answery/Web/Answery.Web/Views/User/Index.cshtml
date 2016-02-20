@@ -1,7 +1,6 @@
-﻿@model
+﻿@model Answery.Web.ViewModels.User.UserViewModel
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = Model.Username + " | Answery";
 }
 
-<h2>Index</h2>
-
+<h2>@Model.Username</h2>

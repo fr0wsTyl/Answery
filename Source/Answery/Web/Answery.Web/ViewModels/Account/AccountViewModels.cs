@@ -67,7 +67,7 @@
         public bool? RememberMe { get; set; }
     }
 
-    public class RegisterViewModel : IMapTo<User>
+    public class RegisterViewModel : IMapTo<Data.Models.User>
     {
         [Required]
         [EmailAddress]
