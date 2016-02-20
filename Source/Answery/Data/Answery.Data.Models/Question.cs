@@ -1,6 +1,5 @@
 ﻿namespace Answery.Data.Models
 {
-    using System;
     using Common.Models;
     public class Question : BaseModel<int>
     {

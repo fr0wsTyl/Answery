@@ -1,27 +1,30 @@
 ﻿namespace Answery.Services
 {
     using System;
+    using System.Data.Entity;
     using System.Linq;
+    using Data;
     using Data.Common;
     using Data.Models;
     using Interfaces;
+
     public class UsersService : IUsersService
     {
-        private readonly IDbRepository<User> users;
+        private IDbSet<User> Users { get; }
 
-        public UsersService(IDbRepository<User> users)
+        public UsersService(DbContext context)
         {
-            this.users = users;
+            this.Users = context.Set<User>();
         }
 
         public User GetUserById(string id)
         {
-            return this.users.GetById(id);
+            return this.Users.Where(user => user.Id == id).FirstOrDefault();
         }
 
         public User GetUserByUsername(string username)
         {
-            return this.users.All().Where(user => user.UserName == username);
+            return this.Users.Where(user => user.UserName == username).FirstOrDefault();
         }
     }
 }

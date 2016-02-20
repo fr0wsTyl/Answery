@@ -8,7 +8,7 @@
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
 
-    public class User : IdentityUser, IAuditInfo, IDeletableEntity
+    public class User : IdentityUser
     {
         [Required]
         [Range(8, 100)]
@@ -22,7 +22,7 @@
         [MaxLength(40)]
         public string LastName { get; set; }
 
-        public string UserName { get; set; }
+        public override string UserName { get; set; }
 
         public DateTime CreatedOn { get; set; }
         public DateTime? ModifiedOn { get; set; }
