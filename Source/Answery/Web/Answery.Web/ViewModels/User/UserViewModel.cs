@@ -2,9 +2,10 @@
 {
     using System;
     using Data.Models;
+    using Infrastructure.Mapping;
     using Infrastructure.Mapping.MvcTemplate.Web.Infrastructure.Mapping;
 
-    public class UserViewModel : IMapFrom<User>
+    public class UserViewModel : IMapFrom<User>, IMapTo<User>
     {
         public string Username { get; set; }
 
