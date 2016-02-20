@@ -21,7 +21,7 @@
 
         public User GetUserByUsername(string username)
         {
-            return this.users.All().Where(user => user.Username == username);
+            return this.users.All().Where(user => user.UserName == username);
         }
     }
 }
