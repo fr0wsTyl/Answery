@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C59F2B37-48EA-41FB-8247-322164BC8A2D}</ProjectGuid>
+    <ProjectGuid>{75A58555-CA50-4EEE-A21E-FD48105CC7BF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Answery.Services</RootNamespace>
@@ -40,7 +40,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\IQuestionsService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuestionsService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Data\Answery.Data.Common\Answery.Data.Common.csproj">
+      <Project>{E6C5C8C2-FE77-461F-B68E-10866DC5DCAF}</Project>
+      <Name>Answery.Data.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\Answery.Data.Models\Answery.Data.Models.csproj">
+      <Project>{bc1ae830-828f-40ec-809d-59fb14648dbe}</Project>
+      <Name>Answery.Data.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

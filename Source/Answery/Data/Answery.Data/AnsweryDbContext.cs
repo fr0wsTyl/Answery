@@ -19,6 +19,8 @@
             return new AnsweryDbContext();
         }
 
+        public virtual IDbSet<Question> Questions { get; set; } 
+
         public override int SaveChanges()
         {
             this.ApplyAuditInfoRules();

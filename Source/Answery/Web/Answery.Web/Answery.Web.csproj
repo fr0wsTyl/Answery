@@ -312,6 +312,10 @@
       <Project>{57308728-dfcc-4c5c-b4f4-0cb623a5a1e7}</Project>
       <Name>Answery.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Services\Answery.Services\Answery.Services.csproj">
+      <Project>{75A58555-CA50-4EEE-A21E-FD48105CC7BF}</Project>
+      <Name>Answery.Services</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Answery.Infrastructure\Answery.Infrastructure.csproj">
       <Project>{446ce8d7-88ab-473e-8eba-5f1cd9ab71cc}</Project>
       <Name>Answery.Infrastructure</Name>

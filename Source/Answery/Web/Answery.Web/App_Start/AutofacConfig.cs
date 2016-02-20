@@ -7,6 +7,8 @@
     using Autofac.Integration.Mvc;
     using Data;
     using Data.Common;
+    using Services.Interfaces;
+
     public static class AutofacConfig
     {
         public static void RegisterAutofac()
@@ -39,6 +41,8 @@
         private static void RegisterInjections(ContainerBuilder builder)
         {
             builder.Register(x => new AnsweryDbContext()).As<DbContext>().InstancePerRequest();
+            builder.RegisterGeneric(typeof (IQuestionsService)).As(typeof(IQuestionsService)).InstancePerRequest();
+            builder.RegisterGeneric(typeof (DbRepository<>)).As(typeof(IDbRepository<>)).InstancePerRequest();
             builder.RegisterGeneric(typeof (DbRepository<>)).As(typeof(IDbRepository<>)).InstancePerRequest();
         }
     }
