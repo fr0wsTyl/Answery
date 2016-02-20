@@ -4,9 +4,8 @@
     ViewBag.Title = "Log in";
 }
 
-<h2>@ViewBag.Title.</h2>
-<div class="row card body-content blue-grey darken-2 center">
-    <div class="col-md-8">
+<div class="row ">
+    <div class="col m6 offset-m3 body-content grey text-white white-text darken-4 center">
         <section id="loginFord">
             @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
@@ -29,9 +28,12 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        @Html.CheckBoxFor(m => m.RememberMe, new { @checked = "checked" })
-                        @Html.LabelFor(m => m.RememberMe)
+                    <div>
+                        @Html.HiddenFor(model => model.RememberMe, new { @id = "chkIsApproved" })
+                        <div class="kbcheckbox">
+                            <input data-val="true"  id="UserEdit_IsApproved"  type="checkbox" value="false">
+                            <label for="UserEdit_IsApproved">Remember me?</label>
+                        </div>
                     </div>
                 </div>
                 <div class="form-group">
@@ -42,20 +44,24 @@
                 <p class="center">
                     @Html.ActionLink("Register as a new user", "Register")
                 </p>
-                @* Enable this once you have account confirmation enabled for password reset functionality
-                    <p>
-                        @Html.ActionLink("Forgot your password?", "ForgotPassword")
-                    </p>*@
+                <p class="center">
+                    @Html.ActionLink("Forgot your password?", "ForgotPassword")
+                </p>
             }
         </section>
     </div>
     <div class="col-md-4">
         <section id="socialLoginForm">
-            @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+            @*@Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })*@
         </section>
     </div>
 </div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $('#UserEdit_IsApproved').change(function () {
+            $('#chkIsApproved').val($(this).is(':checked'));
+        });
+    </script>
 }
