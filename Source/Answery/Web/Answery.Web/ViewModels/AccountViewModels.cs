@@ -80,7 +80,7 @@
         public string UserName { get; set; }
 
         [Required]
-        [Range(8,100)]
+        [Range(8, 100)]
         [Display(Name = "Age")]
         public int Age { get; set; }
 

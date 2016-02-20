@@ -39,7 +39,7 @@
         private static void RegisterInjections(ContainerBuilder builder)
         {
             builder.Register(x => new AnsweryDbContext()).As<DbContext>().InstancePerRequest();
-            builder.RegisterGeneric(typeof (DbRepository<>)).As(typeof (IDbRepository<>)).InstancePerRequest();
+            builder.RegisterGeneric(typeof (DbRepository<>)).As(typeof(IDbRepository<>)).InstancePerRequest();
         }
     }
 }
