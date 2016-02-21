@@ -162,7 +162,11 @@ else
                         @: AuthorId: "@User.Identity.GetUserId()",
                                             }
                     }, function (data) {
-                        console.log(data);
+                        if (data.isSuccessfulAdded) {
+                            Materialize.toast('Successfully asked question', 5000);
+                        } else {
+                            Materialize.toast('Error. Something has happened. Try again later', 5000);
+                        }
                     });
                 }
             });

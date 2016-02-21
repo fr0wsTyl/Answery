@@ -41,11 +41,17 @@
                 question.Receiver = this.usersService.GetUserById(question.ReceiverId);
 
                 var questionAdded = this.questionsService.Add(question);
-                return Json(questionAdded);
+
+                //Checking if the question is added successfully
+                if (questionAdded.IsAnswered == false)
+                {
+                    return Json(new { isSuccessfulAdded = true});
+                }
+                return Json(new { isSuccessfulAdded = false});
             }
             else
             {
-                return Json(new { message = "Invalid data"});
+                return Json(new { isSuccessfulAdded = false});
             }
         }
     }
