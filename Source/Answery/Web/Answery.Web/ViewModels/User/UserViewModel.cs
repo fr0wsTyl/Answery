@@ -36,6 +36,7 @@
                 .ForMember(x => x.AnsweredQuestions, opt => opt.MapFrom(x => x.Questions.Count(q => q.IsAnswered)));
             configuration.CreateMap<User, UserViewModel>()
                 .ForMember(x => x.UnAnsweredQuestions, opt => opt.MapFrom(x => x.Questions.Count(q => q.IsAnswered == false)));
+
         }
     }
 }
