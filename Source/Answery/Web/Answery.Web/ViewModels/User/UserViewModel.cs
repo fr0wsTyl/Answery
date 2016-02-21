@@ -1,11 +1,13 @@
 ﻿namespace Answery.Web.ViewModels.User
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
     using AutoMapper;
     using Data.Models;
     using Infrastructure.Mapping;
     using Infrastructure.Mapping.MvcTemplate.Web.Infrastructure.Mapping;
+    using Question;
 
     public class UserViewModel : IMapFrom<User>, IMapTo<User>, IHaveCustomMappings
     {
@@ -25,6 +27,8 @@
         public int UnAnsweredQuestions { get; set; }
 
         public string About { get; set; }
+
+        public IEnumerable<QuestionViewModel> Questions { get; set; }
 
         public void CreateMappings(IMapperConfiguration configuration)
         {

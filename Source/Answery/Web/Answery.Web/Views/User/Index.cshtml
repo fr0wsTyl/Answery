@@ -1,4 +1,6 @@
-﻿@using Microsoft.AspNet.Identity
+﻿@using System.Collections
+@using Answery.Web.ViewModels.Question
+@using Microsoft.AspNet.Identity
 @model Answery.Web.ViewModels.User.UserViewModel
 
 @if (Model == null)
@@ -138,8 +140,8 @@ else
                         </div>
                     </div>
                 </div>
-
             </div>
+            @Html.Partial("QuestionsPartial", @Model.Questions)
         </div>
     </div>
     @section scripts

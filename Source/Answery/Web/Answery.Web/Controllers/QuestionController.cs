@@ -19,13 +19,6 @@
             this.usersService = usersService;
         }
 
-        [HttpGet]
-        [AllowAnonymous]
-        public JsonResult Get(string a)
-        {
-            return Json(new { message = "hey"}, JsonRequestBehavior.AllowGet);
-        }
-
         [HttpPost]
         public JsonResult Add(QuestionViewModel questionInput)
         {
