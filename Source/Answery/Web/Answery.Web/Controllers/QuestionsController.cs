@@ -1,12 +1,15 @@
 ﻿namespace Answery.Web.Controllers
 {
     using System.Web.Mvc;
+    using ViewModels.Question;
 
     public class QuestionsController : Controller
     {
-        public ActionResult Index()
+        [HttpPost]
+        public JsonResult Add(QuestionViewModel question)
         {
-            return View();
+
+            return Json();
         }
     }
 }

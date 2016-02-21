@@ -151,9 +151,14 @@ else
             var MAX_QUESTION_LENGTH = 600;
 
             if ($('#question-content').val().length < 5 || $('#question-content').val().length > 600) {
-                Materialize.toast('Qestion length should be between '+MIN_QUESTION_LENGTH +' AND'+MAX_QUESTION_LENGTH +'. ', 5000);
-            };
-            
+                Materialize.toast('Qestion length should be between ' + MIN_QUESTION_LENGTH + ' AND' + MAX_QUESTION_LENGTH + '. ', 5000);
+            } else {
+                $.post('Question/Add', {
+                    
+                } , function() {
+                    
+                })
+            }
         });
     </script>
 }
