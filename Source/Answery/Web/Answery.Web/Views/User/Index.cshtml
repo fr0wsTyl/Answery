@@ -13,55 +13,144 @@
 else
 {
     ViewBag.Title = Model.Username + " | Answery";
-    <div id="profile-page-header" class="card">
-        <div class="card-image waves-effect waves-block waves-light">
-            <img class="activator" src="http://demo.geekslabs.com/materialize/v2.3/layout03/images/user-profile-bg.jpg" alt="user background">
-        </div>
-        <figure class="card-profile-image">
-            <img src="http://staffprofiles.bournemouth.ac.uk/library/images/nopicture-male.jpg" alt="profile image" class="circle z-depth-2 responsive-img activator">
-        </figure>
-        <div class="card-content">
-            <div class="row">
-                <div class="col s3 offset-s3">
-                    <h4 class="card-title grey-text text-darken-4">@Model.Username</h4>
-                    <p class="medium-small grey-text">Project Manager</p>
+    <div class="row">
+        <div class="col m10 offset-m1">
+            <div id="profile-page-header" class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="http://myibook.de/archive/coverImages/default.jpg" alt="user background">
                 </div>
-                <div class="col s2 center-align">
-                    <h4 class="card-title grey-text text-darken-4">10+</h4>
-                    <p class="medium-small grey-text">Answered questions</p>
+                <figure class="card-profile-image">
+                    <img src="http://staffprofiles.bournemouth.ac.uk/library/images/nopicture-male.jpg" alt="profile image" class="circle z-depth-2 responsive-img activator">
+                </figure>
+                <div class="card-content">
+                    <div class="row">
+                        <div class="col s3 offset-s2">
+                            <h4 class="card-title grey-text text-darken-4 flow-text">@Model.FirstName @Model.LastName</h4>
+                            @*<p class="medium-small grey-text">@Model.About</p>*@
+                        </div>
+                        <div class="col s2 center-align">
+                            <h4 class="card-title grey-text text-darken-4">@Model.AnsweredQuestions</h4>
+                            <p class="medium-small grey-text">Answered questions</p>
+                        </div>
+                        <div class="col s2 center-align">
+                            <h4 class="card-title grey-text text-darken-4">@Model.UnAnsweredQuestions</h4>
+                            <p class="medium-small grey-text">Unanswered questions</p>
+                        </div>
+                        <div class="col s2 center-align">
+                            <h4 class="card-title grey-text text-darken-4">5</h4>
+                            <p class="medium-small grey-text">People connected</p>
+                        </div>
+
+                        @*<div class="col s2 center-align">
+                                <h4 class="card-title grey-text text-darken-4">$ 1,253,000</h4>
+                                <p class="medium-small grey-text">Busness Profit</p>
+                            </div>*@
+                        <div class="col s1 right-align">
+                            <a class="btn-floating activator waves-effect waves-light darken-2 right">
+                                <i class="mdi-action-perm-identity grey darken-3"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <div class="col s2 center-align">
-                    <h4 class="card-title grey-text text-darken-4">6</h4>
-                    <p class="medium-small grey-text">People connected</p>
-                </div>
-                @*<div class="col s2 center-align">
-                        <h4 class="card-title grey-text text-darken-4">$ 1,253,000</h4>
-                        <p class="medium-small grey-text">Busness Profit</p>
-                    </div>*@
-                <div class="col s1 right-align">
-                    <a class="btn-floating activator waves-effect waves-light darken-2 right">
-                        <i class="mdi-action-perm-identity grey darken-3"></i>
-                    </a>
+                <div class="card-reveal black-text">
+                    <p>
+                        <span class="card-title grey-text text-darken-4">@Model.Username <i class="mdi-navigation-close right"></i></span>
+                        <br />
+                        <span><i class="mdi-action-perm-identity cyan-text text-darken-2"></i> Registered on @Model.CreatedOn.ToString("yyyy MMMM dd")</span>
+                        <br />
+                        <span><i class="mdi-action-perm-identity cyan-text text-darken-2"></i> First name @Model.FirstName</span>
+                        <br />
+                        <span><i class="mdi-action-perm-identity cyan-text text-darken-2"></i> Last name @Model.LastName</span>
+                    </p>
+
+                    <p>@Model.About</p>
+
+                    <p><i class="mdi-action-perm-phone-msg cyan-text text-darken-2"></i> Answered questions: @Model.AnsweredQuestions</p>
+                    <p><i class="mdi-action-perm-phone-msg cyan-text text-darken-2"></i> Unanswered questions: @Model.UnAnsweredQuestions</p>
+                    <p>@*<i class="mdi-communication-email cyan-text text-darken-2"></i> Connected with: @Model.ConnectedWith people*@</p>
+                    <p><i class="mdi-social-cake cyan-text text-darken-2"></i> Age: @Model.Age</p>
                 </div>
             </div>
-        </div>
-        <div class="card-reveal black-text">
-            <p>
-                <span class="card-title grey-text text-darken-4">@Model.Username <i class="mdi-navigation-close right"></i></span>
-                <br/>
-                <span><i class="mdi-action-perm-identity cyan-text text-darken-2"></i> Registered on @Model.CreatedOn.ToString("yyyy MMMM dd")</span>
-                <br />
-                <span><i class="mdi-action-perm-identity cyan-text text-darken-2"></i> First name @Model.FirstName</span>
-                <br />
-                <span><i class="mdi-action-perm-identity cyan-text text-darken-2"></i> Last name @Model.LastName</span>
-            </p>
+            <div id="profile-page-sidebar" class="col s12 m4">
+                <!-- Profile About -->
+                <div class="card light-blue">
+                    <div class="card-content white-text">
+                        <span class="card-title">About Me!</span>
+                        <p>@Model.About</p>
+                    </div>
+                </div>
+                <!-- Profile About -->
+                <!-- Profile About Details -->
+                <ul id="profile-page-about-details" class="collection z-depth-1">
+                    <li class="collection-item">
+                        <div class="row">
+                            <div class="col s5 grey-text darken-1">
+                                <i class="mdi-action-wallet-travel"></i> Username
+                            </div>
+                            <div class="col s7 grey-text text-darken-4 right-align">@Model.Username</div>
+                        </div>
+                    </li>
+                    <li class="collection-item">
+                        <div class="row">
+                            <div class="col s5 grey-text darken-1">
+                                <i class="mdi-social-cake"></i> Age
+                            </div>
+                            <div class="col s7 grey-text text-darken-4 right-align">@Model.Age</div>
+                        </div>
+                    </li>
+                </ul>
+                <!--/ Profile About Details -->
+                <!-- Profile About -->
+                <div class="card amber darken-2">
+                    <div class="card-content white-text center-align">
+                        <p class="card-title">
+                            <i class="mdi-social-group-add"></i> 3685
+                        </p>
+                        <p>Question likes</p>
+                    </div>
+                </div>
+                <div class="card grey darken-2">
+                    <div class="card-content white-text center-align">
+                        <p class="card-title">
+                            <i class="mdi-social-group-add"></i> 153
+                        </p>
+                        <p>Comments</p>
+                    </div>
+                </div>
+            </div>
+            <div id="profile-page-wall" class="col s12 m8">
+                <!-- profile-page-wall-share -->
+                <div id="profile-page-wall-share" class="row">
+                    <div class="col m12">
+                        <ul class="tabs tab-profile z-depth-1 light-blue" style="width: 100%;">
+                            <li class="tab col s3">
+                                <a class="white-text waves-effect waves-light active" href="#UpdateStatus"><i class="mdi-editor-border-color"></i> Ask a question!</a>
+                            </li>
+                        </ul>
+                        <!-- UpdateStatus-->
+                        <div id="UpdateStatus" class="tab-content col m12  grey lighten-4">
+                            <div class="row">
+                                <div class="input-field col m12">
+                                    <textarea id="textarea" class="materialize-textarea black-text"></textarea>
+                                    <label for="textarea" class="">What is your question?</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col s12 m6 share-icons">
+                                    <a href="#"><i class="mdi-image-camera-alt"></i></a>
+                                    <a href="#"><i class="mdi-action-account-circle"></i></a>
+                                    <a href="#"><i class="mdi-hardware-keyboard-alt"></i></a>
+                                    <a href="#"><i class="mdi-communication-location-on"></i></a>
+                                </div>
+                                <div class="col s12 m6 right-align">
+                                    <a class="waves-effect white blue-text btn"><i class="mdi-maps-rate-review left"></i>Ask</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-            <p>@Model.About</p>
-                
-            <p><i class="mdi-action-perm-phone-msg cyan-text text-darken-2"></i> Answered questions: @Model.AnsweredQuestions</p>
-            <p><i class="mdi-action-perm-phone-msg cyan-text text-darken-2"></i> Unanswered questions: @Model.UnAnsweredQuestions</p>
-            <p>@*<i class="mdi-communication-email cyan-text text-darken-2"></i> Connected with: @Model.ConnectedWith people*@</p>
-            <p><i class="mdi-social-cake cyan-text text-darken-2"></i> Age: @Model.Age</p>
+            </div>
         </div>
     </div>
 }

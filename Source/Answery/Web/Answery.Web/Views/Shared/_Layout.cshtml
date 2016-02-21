@@ -24,7 +24,7 @@
                         {
                             <li>@Html.ActionLink("Unanswered", "Answered", "Questions")</li>
                             <li>@Html.ActionLink("Asked", "Asked", "Questions")</li>
-                            <li>@Html.ActionLink("Profile", "Index", "Manage")</li>
+                            <li><a href="~/User/@User.Identity.Name">Profile</a></li>
                             <li>@Html.ActionLink("Chat", "Index", "Chat")</li>
                         }
                         else
