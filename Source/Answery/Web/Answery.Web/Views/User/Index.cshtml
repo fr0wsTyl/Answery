@@ -26,7 +26,7 @@ else
                     <div class="row">
                         <div class="col s3 offset-s2">
                             <h4 class="card-title grey-text text-darken-4 flow-text">@Model.FirstName @Model.LastName</h4>
-                            @*<p class="medium-small grey-text">@Model.About</p>*@
+                            <p class="medium-small grey-text">Member since @Model.CreatedOn.Date.ToString("yyyy MMMM dd")</p>
                         </div>
                         <div class="col s2 center-align">
                             <h4 class="card-title grey-text text-darken-4">@Model.AnsweredQuestions</h4>
@@ -40,11 +40,6 @@ else
                             <h4 class="card-title grey-text text-darken-4">5</h4>
                             <p class="medium-small grey-text">People connected</p>
                         </div>
-
-                        @*<div class="col s2 center-align">
-                                <h4 class="card-title grey-text text-darken-4">$ 1,253,000</h4>
-                                <p class="medium-small grey-text">Busness Profit</p>
-                            </div>*@
                         <div class="col s1 right-align">
                             <a class="btn-floating activator waves-effect waves-light darken-2 right">
                                 <i class="mdi-action-perm-identity grey darken-3"></i>
@@ -124,10 +119,9 @@ else
                     <div class="col m12">
                         <ul class="tabs tab-profile z-depth-1 light-blue" style="width: 100%;">
                             <li class="tab col s3">
-                                <a class="white-text waves-effect waves-light active" href="#UpdateStatus"><i class="mdi-editor-border-color"></i> Ask a question!</a>
+                                <a class="white-text waves-effect waves-light active" href="#UpdateStatus"><i class="mdi-editor-border-color"></i> Ask @Model.FirstName a question</a>
                             </li>
                         </ul>
-                        <!-- UpdateStatus-->
                         <div id="UpdateStatus" class="tab-content col m12  grey lighten-4">
                             <div class="row">
                                 <div class="input-field col s12">
@@ -136,14 +130,8 @@ else
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col s12 m6 share-icons">
-                                    <a href="#"><i class="mdi-image-camera-alt"></i></a>
-                                    <a href="#"><i class="mdi-action-account-circle"></i></a>
-                                    <a href="#"><i class="mdi-hardware-keyboard-alt"></i></a>
-                                    <a href="#"><i class="mdi-communication-location-on"></i></a>
-                                </div>
-                                <div class="col s12 m6 right-align">
-                                    <a class="waves-effect white blue-text btn"><i class="mdi-maps-rate-review left"></i>Ask</a>
+                                <div class="col s12 m12 right-align">
+                                    <button id="ask-a-question-btn" class="waves-effect white blue-text btn"><i class="mdi-maps-rate-review left"></i>Ask</button>
                                 </div>
                             </div>
                         </div>
@@ -155,3 +143,11 @@ else
     </div>
 }
 
+@section scripts
+{
+    <script>
+        $('#ask-a-question-btn').on('click', function() {
+            Materialize.toast('Toast!', 4000);
+        });
+    </script>
+}

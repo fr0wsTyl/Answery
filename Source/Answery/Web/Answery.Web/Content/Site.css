@@ -50,3 +50,6 @@ label {
 .special-style-margin {
     margin-top: -50px;
 }
+input, select, textarea {
+    max-width: 1000px;
+}

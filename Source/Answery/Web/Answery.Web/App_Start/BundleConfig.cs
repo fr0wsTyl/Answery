@@ -28,9 +28,7 @@
 
             bundles.Add(new StyleBundle("~/bundles/scripts").Include(
                       "~/Scripts/jquery.sparkline.min.js",
-                      "~/Scripts/sparkline-script.js",
-                      "~/Scripts/prism.js",
-                      "~/Scripts/plugins.js"));
+                      "~/Scripts/sparkline-script.js"));
         }
     }
 }
