@@ -13,7 +13,7 @@
 
         public virtual Question Question { get; set; }
 
-        public virtual string AuthorId { get; set; }
+        public string AuthorId { get; set; }
 
         public virtual User Author { get; set; }
     }

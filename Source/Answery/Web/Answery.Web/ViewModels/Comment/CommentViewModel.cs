@@ -1,10 +1,14 @@
 ﻿namespace Answery.Web.ViewModels.Comment
 {
+    using System.Collections.Generic;
     using User;
     using Question;
     using System.ComponentModel.DataAnnotations;
+    using Data.Models;
+    using Infrastructure.Mapping;
+    using Infrastructure.Mapping.MvcTemplate.Web.Infrastructure.Mapping;
 
-    public class CommentViewModel
+    public class CommentViewModel : IMapTo<Comment>, IMapFrom<Comment>
     {
         [Required]
         [MinLength(5)]
@@ -13,10 +17,10 @@
 
         public string QuestionId { get; set; }
 
-        public virtual QuestionViewModel Question { get; set; }
+        public virtual Question Question { get; set; }
 
-        public virtual string AuthorId { get; set; }
+        public string AuthorId { get; set; }
 
-        public virtual UserViewModel Author { get; set; }
+        public virtual User Author { get; set; }
     }
 }

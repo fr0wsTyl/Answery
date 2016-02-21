@@ -30,12 +30,8 @@
             if (user != null)
             {
                 var questions = this.questionsService.GetAllUnAnsweredBy(user.Id);
-                userToShow.Questions = questions.To<QuestionViewModel>();
+                userToShow.Questions = questions.To<QuestionViewModel>().ToList();
             }
-
-
-            userToShow.Questions = userToShow.Questions.ToList();
-            
 
             return View(userToShow);
         }

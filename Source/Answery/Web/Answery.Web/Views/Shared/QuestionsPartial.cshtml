@@ -8,32 +8,32 @@
     {
         foreach (var question in Model)
         {
-                <div id="profile-page-wall-posts" class="row">
-                    <div class="col s12">
-                        <!-- medium -->
-                        <div id="profile-page-wall-post" class="card">
-                            <div class="card-profile-title">
-                                <div class="row">
-                                    <div class="col s10">
-                                        <span class="grey-text text-darken-1 ultra-small">Asked on @question.CreatedOn.ToString("dd MMMM yyyy hh:mm")</span>
-                                    </div>
+            <div id="profile-page-wall-posts" class="row">
+                <div class="col s12">
+                    <!-- medium -->
+                    <div id="profile-page-wall-post" class="card">
+                        <div class="card-profile-title">
+                            <div class="row">
+                                <div class="col s10">
+                                    <span class="grey-text text-darken-1 ultra-small">Asked on @question.CreatedOn.ToString("dd MMMM yyyy hh:mm")</span>
                                 </div>
-                                <div class="row">
-                                    <div class="col s12 black-text">
-                                        <p>
-                                            I am a very simple wall post. I am good at containing <a href="#">#small</a> bits of <a href="#">#information</a>. I require little more information to use effectively.
-                                        </p>
-                                    </div>
+                            </div>
+                            <div class="row">
+                                <div class="col s12 black-text">
+                                    <p>
+                                        I am a very simple wall post. I am good at containing <a href="#">#small</a> bits of <a href="#">#information</a>. I require little more information to use effectively.
+                                    </p>
                                 </div>
-                                <div class="row">
-                                    <div class="col s2 offset-s10">
-                                        <span class="grey-text text-darken-1 ultra-small">@question.Comments comments</span>
-                                    </div>
+                            </div>
+                            <div class="row">
+                                <div class="col s2 offset-s10">
+                                    <span class="grey-text text-darken-1 ultra-small">@question.Comments.Count() comments</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
         }
     }
 </div>
