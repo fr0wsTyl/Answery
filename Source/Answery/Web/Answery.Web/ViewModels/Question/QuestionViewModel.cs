@@ -3,13 +3,18 @@
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.Linq;
+    using AutoMapper;
     using Comment;
     using Data.Models;
     using Infrastructure.Mapping;
     using Infrastructure.Mapping.MvcTemplate.Web.Infrastructure.Mapping;
+    using User;
 
-    public class QuestionViewModel : IMapFrom<Question>, IMapTo<Question>
+    public class QuestionViewModel : IMapFrom<Question>, IMapTo<Question>, IHaveCustomMappings
     {
+        public int Id { get; set; }
+
         [Required]
         [MinLength(5)]
         [MaxLength(600)]
@@ -28,5 +33,10 @@
         public virtual User Author { get; set; }
 
         public virtual IEnumerable<CommentViewModel> Comments { get; set; }
+        public void CreateMappings(IMapperConfiguration configuration)
+        {
+            configuration.CreateMap<Question, QuestionViewModel>()
+                .ForMember(x => x.Comments, opt => opt.Ignore());
+        }
     }
 }

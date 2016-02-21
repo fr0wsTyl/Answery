@@ -15,7 +15,7 @@
         [MaxLength(300)]
         public string Content { get; set; }
 
-        public string QuestionId { get; set; }
+        public int QuestionId { get; set; }
 
         public virtual Question Question { get; set; }
 

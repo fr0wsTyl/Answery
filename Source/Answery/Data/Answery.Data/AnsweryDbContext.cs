@@ -20,6 +20,7 @@
         }
 
         public virtual IDbSet<Question> Questions { get; set; } 
+        public virtual IDbSet<Comment> Comments { get; set; } 
 
         public override int SaveChanges()
         {
