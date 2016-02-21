@@ -1,5 +1,6 @@
 ﻿namespace Answery.Web.ViewModels.Question
 {
+    using System;
     using System.ComponentModel.DataAnnotations;
     using Data.Models;
     using Infrastructure.Mapping;
@@ -16,6 +17,8 @@
         public string ReceiverId { get; set; }
 
         public virtual User Receiver { get; set; }
+
+        public DateTime CreatedOn { get; set; }
 
         public virtual string AuthorId { get; set; }
 
