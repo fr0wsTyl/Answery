@@ -6,7 +6,7 @@
     public class QuestionViewModel : IMapFrom<Question>
     {
         [Required]
-        [MinLength(8)]
+        [MinLength(5)]
         [MaxLength(600)]
         public string Content { get; set; }
     }

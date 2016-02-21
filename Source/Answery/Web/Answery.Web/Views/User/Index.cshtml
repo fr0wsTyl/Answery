@@ -125,7 +125,7 @@ else
                         <div id="UpdateStatus" class="tab-content col m12  grey lighten-4">
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <textarea id="textarea" cols="4" class="materialize-textarea black-text"></textarea>
+                                    <textarea id="question-content" cols="4" class="materialize-textarea black-text"></textarea>
                                     <label for="textarea" class="">What is your question?</label>
                                 </div>
                             </div>
@@ -147,8 +147,13 @@ else
 {
     <script>
         $('#ask-a-question-btn').on('click', function () {
+            var MIN_QUESTION_LENGTH = 5;
+            var MAX_QUESTION_LENGTH = 600;
 
-            Materialize.toast('Toast!', 4000);
+            if ($('#question-content').val().length < 5 || $('#question-content').val().length > 600) {
+                Materialize.toast('Qestion length should be between '+MIN_QUESTION_LENGTH +' AND'+MAX_QUESTION_LENGTH +'. ', 5000);
+            };
+            
         });
     </script>
 }
