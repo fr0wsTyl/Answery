@@ -2,8 +2,9 @@
 {
     using System.ComponentModel.DataAnnotations;
     using Data.Models;
+    using Infrastructure.Mapping;
     using Infrastructure.Mapping.MvcTemplate.Web.Infrastructure.Mapping;
-    public class QuestionViewModel : IMapFrom<Question>
+    public class QuestionViewModel : IMapFrom<Question>, IMapTo<Question>
     {
         [Required]
         [MinLength(5)]

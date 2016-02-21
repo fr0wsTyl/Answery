@@ -8,17 +8,18 @@
     using ViewModels.Question;
     using ViewModels.User;
 
-    public class QuestionsController : Controller
+    public class QuestionController : Controller
     {
         private readonly IQuestionsService questionsService;
 
-        public QuestionsController(IQuestionsService questionsService)
+        public QuestionController(IQuestionsService questionsService)
         {
             this.questionsService = questionsService;
         }
 
         [HttpGet]
-        public JsonResult Get()
+        [AllowAnonymous]
+        public JsonResult Get(string a)
         {
             return Json(new { message = "hey"}, JsonRequestBehavior.AllowGet);
         }

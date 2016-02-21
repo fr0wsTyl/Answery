@@ -142,31 +142,31 @@ else
             </div>
         </div>
     </div>
-}
+    @section scripts
+    {
+        <script>
+            $('#ask-a-question-btn').on('click', function () {
+                var MIN_QUESTION_LENGTH = 5;
+                var MAX_QUESTION_LENGTH = 600;
+                var textareaValue = $('#question-content').val();
 
-@section scripts
-{
-    <script>
-        $('#ask-a-question-btn').on('click', function () {
-            var MIN_QUESTION_LENGTH = 5;
-            var MAX_QUESTION_LENGTH = 600;
-            var textareaValue = $('#question-content').val();
-
-            if (textareaValue.length < 5 || textareaValue.length > 600) {
-                Materialize.toast('Qestion length should be between ' + MIN_QUESTION_LENGTH + ' AND' + MAX_QUESTION_LENGTH + '. ', 5000);
-            } else {
-                $.post('../Question/Add', {
-                    content: textareaValue,
-                    isAnswered: false,
-                    ReceiverId: "@Model.Id",
-                    @if (Request.IsAuthenticated)
+                if (textareaValue.length < 5 || textareaValue.length > 600) {
+                    Materialize.toast('Qestion length should be between ' + MIN_QUESTION_LENGTH + ' AND' + MAX_QUESTION_LENGTH + '. ', 5000);
+                } else {
+                    $.post('@Url.Action("Add", "Question")', {
+                        content: textareaValue,
+                        isAnswered: false,
+                        ReceiverId: "@Model.Id",
+                        @if (Request.IsAuthenticated)
                     {
                         @: AuthorId: "@User.Identity.GetUserId()",
-                    }
-                }, function(data) {
-                    console.log(data);
-                });
-            }
-        });
-    </script>
+                                            }
+                    }, function (data) {
+                        console.log(data);
+                    });
+                }
+            });
+        </script>
+    }
 }
+

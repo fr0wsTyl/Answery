@@ -14,6 +14,7 @@
         public User()
         {
             this.Questions = new HashSet<Question>();
+            this.QuestionsAsked = new HashSet<Question>();
         }
 
         [Required]
@@ -40,7 +41,9 @@
 
         public DateTime? DeletedOn { get; set; }
 
-        public virtual IEnumerable<Question> Questions { get; set; } 
+        public virtual IEnumerable<Question> Questions { get; set; }
+
+        public virtual IEnumerable<Question> QuestionsAsked { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)
         {
