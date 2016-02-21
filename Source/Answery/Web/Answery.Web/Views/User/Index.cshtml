@@ -140,8 +140,8 @@ else
                         </div>
                     </div>
                 </div>
+                @Html.Partial("QuestionsPartial", @Model.Questions)
             </div>
-            @Html.Partial("QuestionsPartial", @Model.Questions)
         </div>
     </div>
     @section scripts

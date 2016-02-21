@@ -1,21 +1,18 @@
 ﻿body {
     padding-bottom: 20px;
     background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ),url('../Content/Images/background.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
-/* Set padding to keep content from hitting the edges */
 .body-content {
     padding: 15px;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
+*/ .dl-horizontal dt {
     white-space: normal;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
 textarea {
@@ -25,24 +22,27 @@ textarea {
 .navbar-material .nav-wrapper .brand-logo img {
     height: 64px;
 }
+
 ::-webkit-input-placeholder {
     font-size: 10px;
 }
 
-:-moz-placeholder { /* Firefox 18- */
-  font-size: 10px;
+:-moz-placeholder {
+    font-size: 10px;
 }
 
-::-moz-placeholder {  /* Firefox 19+ */
-   font-size: 10px;
+::-moz-placeholder {
+    font-size: 10px;
 }
 
-:-ms-input-placeholder {  
-   font-size: 10px;
+:-ms-input-placeholder {
+    font-size: 10px;
 }
+
 label {
     font-size: 18px;
 }
+
 .special-style {
     margin-top: -30px;
 }
@@ -50,9 +50,11 @@ label {
 .special-style-margin {
     margin-top: -50px;
 }
+
 input, select, textarea {
     max-width: 1000px;
 }
+
 .toast {
     background-color: #FFF;
     color: #1976D4;

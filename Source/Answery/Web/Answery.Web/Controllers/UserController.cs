@@ -26,13 +26,10 @@
         {
             var user = this.usersService.GetUserByUsername(username);
             var userToShow = AutoMapperConfig.Configuration.CreateMapper().Map<User, UserViewModel>(user);
-            userToShow.Questions = user.Questions.AsQueryable().To<QuestionViewModel>();
 
-            var questions = this.questionService.GetAllAnsweredBy(User.Identity.GetUserId());
-            var model = new ViewModels.Home.IndexViewModel()
-            {
-                Questions = questions.To<QuestionViewModel>()
-            };
+            var questions = this.questionsService.GetAllAnsweredBy(user.Id);
+            userToShow.Questions = questions.To<QuestionViewModel>();
+
             return View(userToShow);
         }
     }
