@@ -1,9 +1,14 @@
 ﻿namespace Answery.Data.Models
 {
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using Common.Models;
     public class Question : BaseModel<int>
     {
+        public Question()
+        {
+            this.Comments = new HashSet<Comment>();
+        }
         [Required]
         [MinLength(5)]
         [MaxLength(600)]
@@ -19,6 +24,7 @@
 
         public virtual User Author { get; set; }
 
+        public virtual IEnumerable<Comment> Comments { get; set; } 
 
     }
 }

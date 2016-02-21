@@ -1,9 +1,8 @@
 ﻿namespace Answery.Web.ViewModels.Comment
 {
-    using System.ComponentModel.DataAnnotations;
-    using Data.Models;
-    using Question;
     using User;
+    using Question;
+    using System.ComponentModel.DataAnnotations;
 
     public class CommentViewModel
     {
