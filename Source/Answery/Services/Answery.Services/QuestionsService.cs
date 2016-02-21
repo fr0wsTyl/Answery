@@ -36,5 +36,12 @@
         {
             return this.questions.All().Where(question => question.ReceiverId == userId && question.IsAnswered);
         }
+
+        public Question Add(Question question)
+        {
+            this.questions.Add(question);
+            this.questions.Save();
+            return question;
+        }
     }
 }
