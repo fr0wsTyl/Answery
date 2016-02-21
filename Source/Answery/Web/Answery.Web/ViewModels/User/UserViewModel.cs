@@ -9,6 +9,8 @@
 
     public class UserViewModel : IMapFrom<User>, IMapTo<User>, IHaveCustomMappings
     {
+        public string Id { get; set; }
+
         public string Username { get; set; }
 
         public DateTime CreatedOn { get; set; }

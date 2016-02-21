@@ -17,6 +17,12 @@
             this.questionsService = questionsService;
         }
 
+        [HttpGet]
+        public JsonResult Get()
+        {
+            return Json(new { message = "hey"}, JsonRequestBehavior.AllowGet);
+        }
+
         [HttpPost]
         public JsonResult Add(QuestionViewModel questionInput)
         {

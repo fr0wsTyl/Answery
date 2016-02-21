@@ -1,4 +1,5 @@
-﻿@model Answery.Web.ViewModels.User.UserViewModel
+﻿@using Microsoft.AspNet.Identity
+@model Answery.Web.ViewModels.User.UserViewModel
 
 @if (Model == null)
 {
@@ -151,18 +152,20 @@ else
             var MAX_QUESTION_LENGTH = 600;
             var textareaValue = $('#question-content').val();
 
-            if (textareaValue.length < 5 || textareaValue.val().length > 600) {
+            if (textareaValue.length < 5 || textareaValue.length > 600) {
                 Materialize.toast('Qestion length should be between ' + MIN_QUESTION_LENGTH + ' AND' + MAX_QUESTION_LENGTH + '. ', 5000);
             } else {
-                $.post('Question/Add', {
-                    content: textareaValue
+                $.post('../Question/Add', {
+                    content: textareaValue,
+                    isAnswered: false,
+                    ReceiverId: "@Model.Id",
                     @if (Request.IsAuthenticated)
                     {
-                        
+                        @: AuthorId: "@User.Identity.GetUserId()",
                     }
-                } , function() {
-                    
-                })
+                }, function(data) {
+                    console.log(data);
+                });
             }
         });
     </script>
