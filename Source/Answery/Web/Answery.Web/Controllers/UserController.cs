@@ -27,8 +27,15 @@
             var user = this.usersService.GetUserByUsername(username);
             var userToShow = AutoMapperConfig.Configuration.CreateMapper().Map<User, UserViewModel>(user);
 
-            var questions = this.questionsService.GetAllAnsweredBy(user.Id);
-            userToShow.Questions = questions.To<QuestionViewModel>();
+            if (user != null)
+            {
+                var questions = this.questionsService.GetAllUnAnsweredBy(user.Id);
+                userToShow.Questions = questions.To<QuestionViewModel>();
+            }
+
+
+            userToShow.Questions = userToShow.Questions.ToList();
+            
 
             return View(userToShow);
         }
