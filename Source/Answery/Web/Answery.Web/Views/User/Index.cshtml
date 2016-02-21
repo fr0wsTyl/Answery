@@ -149,12 +149,17 @@ else
         $('#ask-a-question-btn').on('click', function () {
             var MIN_QUESTION_LENGTH = 5;
             var MAX_QUESTION_LENGTH = 600;
+            var textareaValue = $('#question-content').val();
 
-            if ($('#question-content').val().length < 5 || $('#question-content').val().length > 600) {
+            if (textareaValue.length < 5 || textareaValue.val().length > 600) {
                 Materialize.toast('Qestion length should be between ' + MIN_QUESTION_LENGTH + ' AND' + MAX_QUESTION_LENGTH + '. ', 5000);
             } else {
                 $.post('Question/Add', {
-                    
+                    content: textareaValue
+                    @if (Request.IsAuthenticated)
+                    {
+                        
+                    }
                 } , function() {
                     
                 })
