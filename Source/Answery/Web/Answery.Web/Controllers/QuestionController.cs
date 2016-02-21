@@ -11,10 +11,12 @@
     public class QuestionController : Controller
     {
         private readonly IQuestionsService questionsService;
+        private readonly IUsersService usersService;
 
-        public QuestionController(IQuestionsService questionsService)
+        public QuestionController(IQuestionsService questionsService, IUsersService usersService)
         {
             this.questionsService = questionsService;
+            this.usersService = usersService;
         }
 
         [HttpGet]
@@ -31,6 +33,13 @@
             {
                 var question =
                     AutoMapperConfig.Configuration.CreateMapper().Map<QuestionViewModel, Question>(questionInput);
+                if (question.AuthorId != null)
+                {
+                    question.Author = this.usersService.GetUserById(question.AuthorId);
+                }
+
+                question.Receiver = this.usersService.GetUserById(question.ReceiverId);
+
                 var questionAdded = this.questionsService.Add(question);
                 return Json(questionAdded);
             }
