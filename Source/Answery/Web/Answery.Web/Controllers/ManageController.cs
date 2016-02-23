@@ -27,6 +27,12 @@ namespace Answery.Web.Controllers
             SignInManager = signInManager;
         }
 
+        [HttpGet]
+        public ActionResult Edit()
+        {
+            return View();
+        }
+
         public ApplicationSignInManager SignInManager
         {
             get
