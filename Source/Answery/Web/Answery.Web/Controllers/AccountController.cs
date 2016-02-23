@@ -165,6 +165,7 @@
                 var mapper = AutoMapperConfig.Configuration.CreateMapper();
 
                 var user = mapper.Map<RegisterViewModel, User>(model);
+                user.CreatedOn = DateTime.Now;
 
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)

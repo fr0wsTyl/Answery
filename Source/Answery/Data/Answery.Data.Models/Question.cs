@@ -5,10 +5,12 @@
     using Common.Models;
     public class Question : BaseModel<int>
     {
+        private IEnumerable<Comment> comments; 
         public Question()
         {
-            this.Comments = new HashSet<Comment>();
+            this.comments = new HashSet<Comment>();
         }
+
         [Required]
         [MinLength(5)]
         [MaxLength(600)]
@@ -24,7 +26,11 @@
 
         public virtual User Author { get; set; }
 
-        public virtual IEnumerable<Comment> Comments { get; set; } 
+        public virtual IEnumerable<Comment> Comments
+        {
+            get { return this.comments; }
+            set { this.comments = value; }
+        }
 
     }
 }

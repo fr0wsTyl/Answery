@@ -1,5 +1,6 @@
 ﻿namespace Answery.Web.Controllers
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
@@ -34,8 +35,10 @@
             var userToShow = mapper.Map<User, UserViewModel>(user);
             this.commentsService.Add(new Comment
             {
-                Author = user,
-                QuestionId = "5",
+                QuestionId = 2,
+                CreatedOn = DateTime.Now,
+                Content = "NE WE PAK LI WE",
+                Question = this.questionsService.GetById(2)
             });
             if (user != null)
             {
@@ -44,15 +47,17 @@
                 userToShow.Questions = questions.To<QuestionViewModel>().ToList();
                 foreach (var question in userToShow.Questions)
                 {
-                    var comments = this.commentsService.GetByQuestionId(question.Id);
+                    var comments = this.commentsService.GetByQuestionId(question.Id).ToList();
                     List<CommentViewModel> commentsAsViewModels = new List<CommentViewModel>();
                     foreach (var comment in comments)
                     {
+                        
                         var commentAsViewModel = mapper.Map<Comment, CommentViewModel>(comment);
                         commentsAsViewModels.Add(commentAsViewModel);
                     }
                     question.Comments = commentsAsViewModels;
                 }
+
 
             }
 
