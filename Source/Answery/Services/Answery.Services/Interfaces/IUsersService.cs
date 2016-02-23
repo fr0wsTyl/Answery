@@ -8,5 +8,7 @@
         User GetUserById(string id);
 
         User GetUserByUsername(string username);
+
+        void Update(User user);
     }
 }
