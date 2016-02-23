@@ -11,73 +11,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 <body>
-    <div>
-        <div class="navbar-material">
-            <nav>
-                <div class="nav-wrapper grey darken-4">
-                    
-                    @Html.ActionLink("Answery", "Index", "Home", new { @class = "brand-logo center" })
-                    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-                    <ul class="hide-on-med-and-down">
-                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        @if (Request.IsAuthenticated)
-                        {
-                            <li><a href="~/Questions/Unanswered">Unanswered <span class="red-text darken-3">(@Html.Action("GetUnanswered", "User"))</span></a></li>
-                            <li>@Html.ActionLink("Asked", "Asked", "Questions")</li>
-                            <li><a href="~/User/@User.Identity.Name">Profile</a></li>
-                            <li>@Html.ActionLink("Chat", "Index", "Chat")</li>
-                        }
-                        else
-                        {
+<div>
+    <div class="navbar-material">
+        <nav>
+            <div class="nav-wrapper grey darken-4">
 
-                        }
+                @Html.ActionLink("Answery", "Index", "Home", new {@class = "brand-logo center"})
+                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                <ul class="hide-on-med-and-down">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li><a href="~/Questions/Unanswered">Unanswered <span class="red-text darken-3">(@Html.Action("GetUnanswered", "User"))</span></a></li>
+                        <li>@Html.ActionLink("Asked", "Asked", "Questions")</li>
+                        <li><a href="~/User/@User.Identity.Name">Profile</a></li>
+                        <li>@Html.ActionLink("Chat", "Index", "Chat")</li>
+                    }
+                    else
+                    {
+
+                    }
+                    <li>@Html.ActionLink("Blog", "Index", "Blog")</li>
+                </ul>
+                <ul class="side-nav" id="mobile-demo">
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li class="black-text center">Hi @HttpContext.Current.User.Identity.Name!</li>
+                        <hr/>
+                        <li>@Html.ActionLink("Account", "Index", "Manage")</li>
                         <li>@Html.ActionLink("Blog", "Index", "Blog")</li>
-                    </ul>
-                    <ul class="side-nav" id="mobile-demo">
-                        @if (Request.IsAuthenticated)
-                        {
-                            <li class="black-text center">Hi @HttpContext.Current.User.Identity.Name!</li>
-                            <hr />
-                            <li>@Html.ActionLink("Account", "Index", "Manage")</li>
-                            <li>@Html.ActionLink("Blog", "Index", "Blog")</li>
-                            <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
-                        }
-                        else
-                        {
-                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                            <li>@Html.ActionLink("Login", "Login", "Account")</li>
-                            <li>@Html.ActionLink("Register", "Register", "Account")</li>
-                            <li>@Html.ActionLink("Blog", "Index", "Blog")</li>
-                        }
-                    </ul>
-                    @Html.Partial("_LoginPartial")
-                </div>
-            </nav>
-        </div>
-    </div>
-    <div class="container body-content white-text">
-        @RenderBody()
-        <hr />
-        <footer>
-            <div class="row">
-                <p class="col m3 offset-m4">
-                    &copy; @DateTime.Now.Year - Answery. <a href="https://github.com/fr0wsTyl/Answery">Open-Source project</a>.
-                </p>
+                        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Login", "Login", "Account")</li>
+                        <li>@Html.ActionLink("Register", "Register", "Account")</li>
+                        <li>@Html.ActionLink("Blog", "Index", "Blog")</li>
+                    }
+                </ul>
+                @Html.Partial("_LoginPartial")
             </div>
-        </footer>
+        </nav>
+        @if (TempData["Notifications"] != null)
+        {
+            <div class="card  light-blue">
+                <div class="card-content white-text">
+                    <span class="card-title">@TempData["Notifications"]</span>
+                </div>
+            </div>
+        }
     </div>
+</div>
+<div class="container body-content white-text">
+    @RenderBody()
+    <hr/>
+    <footer>
+        <div class="row">
+            <p class="col m3 offset-m4">
+                &copy; @DateTime.Now.Year - Answery. <a href="https://github.com/fr0wsTyl/Answery">Open-Source project</a>.
+            </p>
+        </div>
+    </footer>
+</div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/materialize")
-    @Scripts.Render("~/bundles/scripts")
-    <script>
-        $(".button-collapse").sideNav();
-    </script>
-    @section Scripts {
-        @*<script>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/materialize")
+@Scripts.Render("~/bundles/scripts")
+<script>
+    $(".button-collapse").sideNav();
+</script>
+@section Scripts {
+    @*<script>
                 $(".button-collapse").sideNav();
             </script>*@
-    }
-    @RenderSection("scripts", required: false)
+}
+@RenderSection("scripts", required: false)
 </body>
 </html>

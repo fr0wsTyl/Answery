@@ -53,9 +53,16 @@ namespace Answery.Web.Controllers
             {
                 var mapper = AutoMapperConfig.Configuration.CreateMapper();
                 var userAsModel = mapper.Map<UserViewModel, User>(user);
+                if (userAsModel.Id == null)
+                {
+                    userAsModel.Id = User.Identity.GetUserId();
+                    userAsModel.UserName = User.Identity.Name;
+                }
+
                 this.usersService.Update(userAsModel);
-                this.TempData["Notification"] = "Successfully updated profile";
-                return View();
+                this.TempData["Notifications"] = "Successfully updated profile";
+                var userAsModelAgain = mapper.Map<User, UserViewModel>(userAsModel);
+                return View(userAsModelAgain);
             }
 
             return View(user);

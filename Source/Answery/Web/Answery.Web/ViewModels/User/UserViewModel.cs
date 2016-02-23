@@ -12,6 +12,15 @@
 
     public class UserViewModel : IMapFrom<User>, IMapTo<User>, IHaveCustomMappings
     {
+        [Range(8, 100)]
+        public int Age { get; set; }
+        
+        [MaxLength(40)]
+        public string FirstName { get; set; }
+        
+        [MaxLength(40)]
+        public string LastName { get; set; }
+
         public string Id { get; set; }
 
         public string Email { get; set; }
@@ -19,11 +28,6 @@
         public string Username { get; set; }
 
         public DateTime CreatedOn { get; set; }
-        public int Age { get; set; }
-
-        public string FirstName { get; set; }
-
-        public string LastName { get; set; }
 
         public int AnsweredQuestions { get; set; }
 

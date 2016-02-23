@@ -1,4 +1,5 @@
-﻿@model Answery.Web.ViewModels.User.UserViewModel
+﻿@using System.Web.UI.WebControls
+@model Answery.Web.ViewModels.User.UserViewModel
 @{
     ViewBag.Title = "Edit Profile | Answery";
 }
@@ -13,6 +14,9 @@
                 <div class="input-field col s12 center">
                     <h4>Update your profile</h4>
                 </div>
+            </div>
+            <div>
+                @Html.ValidationSummary()
             </div>
             <div class="row margin">
                 <div class="input-field col s12">
@@ -52,14 +56,12 @@
             <div class="row margin">
                 <div class="input-field col s12">
                     <i class="mdi-social-person-outline prefix"></i>
-                    @Html.EditorFor(x => x.About)
+                    @Html.TextAreaFor(x => x.About, new { @class = "materialize-textarea"})
                     <label for="email" class="center-align">About me</label>
                 </div>
             </div>
             <div class="row">
-                <div class="input-field col s12">
-                    <input type="submit" value="UPDATE INFORMATION" class="btn waves-effect waves-light col s12"/>
-                </div>
+                    <input type="submit" value="UPDATE INFORMATION" class="btn waves-effect waves-light col s12" />
                 @*<div class="input-field col s12">
                         <p class="margin center medium-small sign-up">Already have an account? <a href="page-login.html">Login</a></p>
                     </div>*@

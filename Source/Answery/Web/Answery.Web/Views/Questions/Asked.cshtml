@@ -3,6 +3,7 @@
     ViewBag.Title = "Asked";
 }
 
+@Html.Partial("PageTitlePartial", "Asked questions")
 @if (Model.Questions.Any())
 {
     foreach (var question in Model.Questions)
