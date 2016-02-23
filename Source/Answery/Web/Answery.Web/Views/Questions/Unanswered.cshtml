@@ -37,7 +37,7 @@
                                         <div id="UpdateStatus" class="tab-content col m12">
                                             <div class="row">
                                                 <div class="input-field col s12">
-                                                    <textarea id="question-content" class="materialize-textarea black-text"></textarea>
+                                                    <textarea id="asnwer-content" class="materialize-textarea black-text"></textarea>
                                                     <label for="textarea">Your answer</label>
                                                 </div>
                                             </div>
@@ -65,7 +65,7 @@
             $('.modal-trigger').leanModal();
             $('.answer-question-btn').on('click', function(btn) {
                 var questionId = $(btn.target).attr('data-question-id');
-                var textareaValue = $('#question-content').val();
+                var textareaValue = $('#asnwer-content').val();
                 var MIN_QUESTION_LENGTH = 3;
                 var MAX_QUESTION_LENGTH = 600;
                 if (textareaValue.length < MIN_QUESTION_LENGTH || textareaValue.length > MAX_QUESTION_LENGTH) {
