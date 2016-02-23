@@ -32,7 +32,7 @@ else
                             <p class="medium-small grey-text">Member since @Model.CreatedOn.Date.ToString("yyyy MMMM dd")</p>
                             @if (User.Identity.Name == Model.Username)
                             {
-                                @Html.ActionLink("EDIT INFORMATION", "Edit", "Manage", new {@class = "medium-small back large bold black-text" });
+                                @Html.ActionLink("EDIT INFORMATION", "Edit","Manage", " " , new {@class = "medium-small back large bold black-text" })
                             }
                         </div>
                         <div class="col s2 center-align">

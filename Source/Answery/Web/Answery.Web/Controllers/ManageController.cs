@@ -11,14 +11,21 @@ using Answery.Web.Config;
 
 namespace Answery.Web.Controllers
 {
+    using Data.Models;
+    using Infrastructure.Mapping;
+    using Services.Interfaces;
+    using ViewModels.User;
+
     [Authorize]
     public class ManageController : Controller
     {
+        private readonly IUsersService usersService;
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
-        public ManageController()
+        public ManageController(IUsersService usersService)
         {
+            this.usersService = usersService;
         }
 
         public ManageController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
@@ -30,7 +37,12 @@ namespace Answery.Web.Controllers
         [HttpGet]
         public ActionResult Edit()
         {
-            return View();
+            var userName = User.Identity.Name;
+            var user = this.usersService.GetUserByUsername(userName);
+            var mapper = AutoMapperConfig.Configuration.CreateMapper();
+            var userToShow = mapper.Map<User, UserViewModel>(user);
+
+            return View(userToShow);
         }
 
         public ApplicationSignInManager SignInManager

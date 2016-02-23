@@ -5,39 +5,55 @@
 
 <div id="login-page" class="row black-text">
     <div class="col s4 z-depth-5 card-panel offset-s4 text-center center-align">
-        <form class="login-form">
+
+        @using (Html.BeginForm("Edit", "Manage", FormMethod.Post, new { @class = "login-form" }))
+        {
+
             <div class="row">
                 <div class="input-field col s12 center">
                     <h4>Update your profile</h4>
-                    <p class="center">Join to our community now !</p>
                 </div>
             </div>
             <div class="row margin">
                 <div class="input-field col s12">
                     <i class="mdi-social-person-outline prefix"></i>
-                    <input id="username" type="text">
+                    <input disabled="disabled" id="username" type="text" value="@Model.Username">
                     <label for="username" class="center-align">Username</label>
                 </div>
             </div>
             <div class="row margin">
                 <div class="input-field col s12">
                     <i class="mdi-communication-email prefix"></i>
-                    <input id="email" type="email">
+                    @Html.EditorFor(x => x.Email)
                     <label for="email" class="center-align">Email</label>
                 </div>
             </div>
             <div class="row margin">
                 <div class="input-field col s12">
-                    <i class="mdi-action-lock-outline prefix"></i>
-                    <input id="password" type="password">
-                    <label for="password">Password</label>
+                    <i class="mdi-communication-email prefix"></i>
+                    @Html.EditorFor(x => x.FirstName)
+                    <label for="email" class="center-align">First name</label>
                 </div>
             </div>
             <div class="row margin">
                 <div class="input-field col s12">
-                    <i class="mdi-action-lock-outline prefix"></i>
-                    <input id="password-again" type="password">
-                    <label for="password-again">Password again</label>
+                    <i class="mdi-communication-email prefix"></i>
+                    @Html.EditorFor(x => x.LastName)
+                    <label for="email" class="center-align">Last name</label>
+                </div>
+            </div>
+            <div class="row margin">
+                <div class="input-field col s12">
+                    <i class="mdi-communication-email prefix"></i>
+                    @Html.EditorFor(x => x.Age)
+                    <label for="email" class="center-align">Age</label>
+                </div>
+            </div>
+            <div class="row margin">
+                <div class="input-field col s12">
+                    <i class="mdi-communication-email prefix"></i>
+                    @Html.EditorFor(x => x.About)
+                    <label for="email" class="center-align">About</label>
                 </div>
             </div>
             <div class="row">
@@ -45,9 +61,16 @@
                     <a href="index.html" class="btn waves-effect waves-light col s12">Update information</a>
                 </div>
                 @*<div class="input-field col s12">
-                    <p class="margin center medium-small sign-up">Already have an account? <a href="page-login.html">Login</a></p>
-                </div>*@
+                        <p class="margin center medium-small sign-up">Already have an account? <a href="page-login.html">Login</a></p>
+                    </div>*@
             </div>
-        </form>
+            <div class="row margin">
+                <div class="input-field col s12">
+                    @*<i class="mdi-action-lock-outline prefix"></i>*@
+                    @Html.ActionLink("Change password", "ChangePassword", "Manage")
+                    @*<label for="password">Password</label>*@
+                </div>
+            </div>
+        }
     </div>
 </div>

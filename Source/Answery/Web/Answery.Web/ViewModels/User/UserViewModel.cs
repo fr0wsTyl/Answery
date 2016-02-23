@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     using System.Linq;
     using AutoMapper;
     using Data.Models;
@@ -12,6 +13,8 @@
     public class UserViewModel : IMapFrom<User>, IMapTo<User>, IHaveCustomMappings
     {
         public string Id { get; set; }
+
+        public string Email { get; set; }
 
         public string Username { get; set; }
 
@@ -26,6 +29,7 @@
 
         public int UnAnsweredQuestions { get; set; }
 
+        [DataType(DataType.MultilineText)]
         public string About { get; set; }
 
         public IEnumerable<QuestionViewModel> Questions { get; set; }
