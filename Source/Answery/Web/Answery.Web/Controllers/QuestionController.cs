@@ -19,6 +19,13 @@
             this.usersService = usersService;
         }
 
+        [Authorize]
+        public ActionResult Unanswered()
+        {
+
+            return View();
+        }
+
         [HttpPost]
         public JsonResult Add(QuestionViewModel questionInput)
         {
