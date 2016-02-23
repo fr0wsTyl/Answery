@@ -45,6 +45,19 @@ namespace Answery.Web.Controllers
             return View(userToShow);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(UserViewModel user)
+        {
+            if (this.ModelState.IsValid)
+            {
+                
+            }
+
+            return View(user);
+        }
+
+
         public ApplicationSignInManager SignInManager
         {
             get
