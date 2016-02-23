@@ -36,6 +36,8 @@
         [HttpGet]
         public ActionResult Asked()
         {
+            var user = this.usersService.GetUserByUsername(User.Identity.Name);
+            var questions = this.questionsService.GetAllAskedBy(user.Id);
             return View();
         }
 

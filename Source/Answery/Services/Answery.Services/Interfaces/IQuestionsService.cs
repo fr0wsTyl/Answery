@@ -14,6 +14,8 @@
 
         IQueryable<Question> GetAllUnAnsweredBy(string userId);
 
+        IQueryable<Question> GetAllAskedBy(string userId);
+
         Question Add(Question question);
     }
 }

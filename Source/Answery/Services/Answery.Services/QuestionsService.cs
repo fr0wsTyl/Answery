@@ -37,6 +37,11 @@
             return this.questions.All().Where(question => question.ReceiverId == userId && question.IsAnswered == false);
         }
 
+        public IQueryable<Question> GetAllAskedBy(string userId)
+        {
+            return this.questions.All().Where(q => q.AuthorId == userId);
+        }
+
         public Question Add(Question question)
         {
             this.questions.Add(question);
