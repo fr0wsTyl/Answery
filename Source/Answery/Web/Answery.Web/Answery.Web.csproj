@@ -305,6 +305,7 @@
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\Shared\NoQuestionsPartial.cshtml" />
     <Content Include="Views\Questions\Unanswered.cshtml" />
+    <Content Include="Views\Shared\PageTitlePartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
