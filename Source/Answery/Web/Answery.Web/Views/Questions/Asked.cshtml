@@ -3,60 +3,67 @@
     ViewBag.Title = "Asked";
 }
 
-@foreach (var question in Model.Questions)
+@if (Model.Questions.Any())
 {
-    <div id="profile-page-wall-posts" class="row white">
-        <div class="col s12">
-            <div class="card-profile-title">
-                <div class="row">
-                    <div class="col s10">
-                        <span class="grey-text text-darken-1 ultra-small">Asked on 23 February 2016 11:14</span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col s12 black-text">
-                        <p class="flow-text">
-                            @question.Content
-                        </p>
-                    </div>
-                </div>
-                <hr class="black">
-                @if (question.IsAnswered)
-                {
-                    <div class="row">
-                        <div class="col s10">
-                            <span class="text-darken-2 ultra-small light-green-text">
+    foreach (var question in Model.Questions)
+     {
+         <div id="profile-page-wall-posts" class="row white">
+             <div class="col s12">
+                 <div class="card-profile-title">
+                     <div class="row">
+                         <div class="col s10">
+                             <span class="grey-text text-darken-1 ultra-small">Asked on 23 February 2016 11:14</span>
+                         </div>
+                     </div>
+                     <div class="row">
+                         <div class="col s12 black-text">
+                             <p class="flow-text">
+                                 @question.Content
+                             </p>
+                         </div>
+                     </div>
+                     <hr class="black">
+                     @if (question.IsAnswered)
+                     {
+                         <div class="row">
+                             <div class="col s10">
+                                 <span class="text-darken-2 ultra-small light-green-text">
                                 Answered on                                                                                                       <span>23 February 2016 11:14</span>
                             </span>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col s12 black-text">
-                            <p class="bold">
-                                @question.Answer
-                            </p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col s2 offset-s10">
-                            <span class="grey-text text-darken-1 ultra-small">
+                             </div>
+                         </div>
+                         <div class="row">
+                             <div class="col s12 black-text">
+                                 <p class="bold">
+                                     @question.Answer
+                                 </p>
+                             </div>
+                         </div>
+                         <div class="row">
+                             <div class="col s2 offset-s10">
+                                 <span class="grey-text text-darken-1 ultra-small">
                             </span>
-                        </div>
-                    </div>
-                }
-                else
-                {
-                    <div class="row">
-                        <div class="col s10">
-                            <span class="text-darken-2 ultra-small red-text">
+                             </div>
+                         </div>
+                     }
+                     else
+                     {
+                         <div class="row">
+                             <div class="col s10">
+                                 <span class="text-darken-2 ultra-small red-text">
                                 Not answered yet.
                             </span>
-                        </div>
-                    </div>
-                }
+                             </div>
+                         </div>
+                     }
 
 
-            </div>
-        </div>
-    </div>
+                 </div>
+             </div>
+         </div>
+     }
+}
+else
+{
+    @Html.Partial("NoQuestionsPartial", "You haven't asked anyone yet.");
 }
