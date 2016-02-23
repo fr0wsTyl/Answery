@@ -1,4 +1,5 @@
 ﻿@using Answery.Web.ViewModels.Question
+@using Microsoft.AspNet.Identity
 @model Answery.Web.ViewModels.Home.IndexViewModel
 @{
     ViewBag.Title = "Unanswered questions | Answery";
@@ -61,13 +62,30 @@
 @section scripts
 {
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             $('.modal-trigger').leanModal();
-            $('.answer-question-btn').on('click', function (btn) {
+            $('.answer-question-btn').on('click', function(btn) {
                 var questionId = $(btn.target).attr('data-question-id');
-                $('#modal_' + questionId).closeModal();
-                $('.question_' + questionId).html(' ');
-
+                var textareaValue = $('#question-content').val();
+                var MIN_QUESTION_LENGTH = 3;
+                var MAX_QUESTION_LENGTH = 600;
+                if (textareaValue.length < MIN_QUESTION_LENGTH || textareaValue.length > MAX_QUESTION_LENGTH) {
+                    Materialize.toast('Answer length should be between ' + MIN_QUESTION_LENGTH + ' and ' + MAX_QUESTION_LENGTH + '. ', 5000);
+                } else {
+                    $.post('@Url.Action("Add", "Answers")', {
+                        Answer: textareaValue,
+                        QuestionId: questionId
+                    }),
+                    function(data) {
+                        if (data.isSuccessfulAdded) {
+                            Materialize.toast('Successfully answered', 5000);
+                            $('#modal_' + questionId).closeModal();
+                            $('.question_' + questionId).html(' ');
+                        } else {
+                            Materialize.toast('Error. Something has happened. Try again later', 5000);
+                        }
+                    }
+                }
             });
         });
     </script>

@@ -152,7 +152,7 @@ else
                 var MAX_QUESTION_LENGTH = 600;
                 var textareaValue = $('#question-content').val();
 
-                if (textareaValue.length < 5 || textareaValue.length > 600) {
+                if (textareaValue.length < MIN_QUESTION_LENGTH || textareaValue.length > MAX_QUESTION_LENGTH) {
                     Materialize.toast('Qestion length should be between ' + MIN_QUESTION_LENGTH + ' and ' + MAX_QUESTION_LENGTH + '. ', 5000);
                 } else {
                     $.post('@Url.Action("Add", "Questions")', {
