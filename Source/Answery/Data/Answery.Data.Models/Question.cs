@@ -1,5 +1,6 @@
 ﻿namespace Answery.Data.Models
 {
+    using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using Common.Models;
@@ -29,6 +30,8 @@
         public virtual string AuthorId { get; set; }
 
         public virtual User Author { get; set; }
+
+        public DateTime AnsweredOn { get; set; }
 
         public virtual IEnumerable<Comment> Comments
         {
