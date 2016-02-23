@@ -1,10 +1,12 @@
 ﻿namespace Answery.Web.Controllers
 {
     using System.Configuration;
+    using System.Linq;
     using System.Web.Mvc;
     using Data.Models;
     using Infrastructure.Mapping;
     using Services.Interfaces;
+    using ViewModels.Home;
     using ViewModels.Question;
     using ViewModels.User;
 
@@ -22,8 +24,13 @@
         [Authorize]
         public ActionResult Unanswered()
         {
-
-            return View();
+            var user = this.usersService.GetUserByUsername(User.Identity.Name);
+            var questions = this.questionsService.GetAllUnAnsweredBy(user.Id);
+            var model = new IndexViewModel()
+            {
+                Questions = questions.To<QuestionViewModel>().ToList()
+            };
+            return View(model);
         }
 
         [HttpPost]
@@ -45,13 +52,13 @@
                 //Checking if the question is added successfully
                 if (questionAdded.IsAnswered == false)
                 {
-                    return Json(new { isSuccessfulAdded = true});
+                    return Json(new { isSuccessfulAdded = true });
                 }
-                return Json(new { isSuccessfulAdded = false});
+                return Json(new { isSuccessfulAdded = false });
             }
             else
             {
-                return Json(new { isSuccessfulAdded = false});
+                return Json(new { isSuccessfulAdded = false });
             }
         }
     }
