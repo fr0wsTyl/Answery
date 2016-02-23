@@ -38,7 +38,11 @@
         {
             var user = this.usersService.GetUserByUsername(User.Identity.Name);
             var questions = this.questionsService.GetAllAskedBy(user.Id);
-            return View();
+            var model = new IndexViewModel()
+            {
+                Questions = questions.To<QuestionViewModel>()
+            };
+            return View(model);
         }
 
         [HttpPost]
