@@ -27,9 +27,6 @@
 
         public ActionResult Index(string username)
         {
-
-
-
             var user = this.usersService.GetUserByUsername(username);
             var mapper = AutoMapperConfig.Configuration.CreateMapper();
             var userToShow = mapper.Map<User, UserViewModel>(user);
@@ -58,6 +55,8 @@
                     question.Comments = commentsAsViewModels;
                 }
 
+                var unasnwrede =
+                    userToShow.Questions.Where(question => question.IsAnswered == false).Count();
 
             }
 

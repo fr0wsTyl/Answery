@@ -22,7 +22,9 @@
                         <li>@Html.ActionLink("Home", "Index", "Home")</li>
                         @if (Request.IsAuthenticated)
                         {
-                            <li>@Html.ActionLink("Unanswered", "Answered", "Questions")</li>
+                            <li>@Html.ActionLink("Unanswered", "Answered", "Questions") @if (this.ViewBag.UnadnsweredNumber != null)
+                                                                                        {
+                                                                                            <span>@this.ViewBag.UnansweredNumber</span>}</li>
                             <li>@Html.ActionLink("Asked", "Asked", "Questions")</li>
                             <li><a href="~/User/@User.Identity.Name">Profile</a></li>
                             <li>@Html.ActionLink("Chat", "Index", "Chat")</li>

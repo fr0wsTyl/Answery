@@ -29,12 +29,12 @@
 
         public IQueryable<Question> GetAllAnsweredBy(string userId)
         {
-            return this.questions.All().Where(question => question.ReceiverId == userId && question.IsAnswered == false);
+            return this.questions.All().Where(question => question.ReceiverId == userId && question.IsAnswered);
         }
 
         public IQueryable<Question> GetAllUnAnsweredBy(string userId)
         {
-            return this.questions.All().Where(question => question.ReceiverId == userId && question.IsAnswered);
+            return this.questions.All().Where(question => question.ReceiverId == userId && question.IsAnswered == false);
         }
 
         public Question Add(Question question)
