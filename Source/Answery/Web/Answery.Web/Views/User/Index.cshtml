@@ -155,7 +155,7 @@ else
                 if (textareaValue.length < 5 || textareaValue.length > 600) {
                     Materialize.toast('Qestion length should be between ' + MIN_QUESTION_LENGTH + ' and ' + MAX_QUESTION_LENGTH + '. ', 5000);
                 } else {
-                    $.post('@Url.Action("Add", "Question")', {
+                    $.post('@Url.Action("Add", "Questions")', {
                         content: textareaValue,
                         isAnswered: false,
                         ReceiverId: "@Model.Id",

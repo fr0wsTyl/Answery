@@ -8,12 +8,12 @@
     using ViewModels.Question;
     using ViewModels.User;
 
-    public class QuestionController : Controller
+    public class QuestionsController : Controller
     {
         private readonly IQuestionsService questionsService;
         private readonly IUsersService usersService;
 
-        public QuestionController(IQuestionsService questionsService, IUsersService usersService)
+        public QuestionsController(IQuestionsService questionsService, IUsersService usersService)
         {
             this.questionsService = questionsService;
             this.usersService = usersService;
