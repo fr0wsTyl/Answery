@@ -52,13 +52,13 @@
                 //Checking if the question is added successfully
                 if (questionAdded.IsAnswered == false)
                 {
-                    return Json(new { isSuccessfulAdded = true });
+                    return Json(new { isSuccessfullyAdded = true });
                 }
-                return Json(new { isSuccessfulAdded = false });
+                return Json(new { isSuccessfullyAdded = false });
             }
             else
             {
-                return Json(new { isSuccessfulAdded = false });
+                return Json(new { isSuccessfullyAdded = false });
             }
         }
     }

@@ -15,9 +15,8 @@
         [MinLength(5)]
         [MaxLength(600)]
         public string Content { get; set; }
-
-        [Required]
-        [MinLength(5)]
+        
+        [MinLength(3)]
         [MaxLength(600)]
         public string Answer { get; set; }
 

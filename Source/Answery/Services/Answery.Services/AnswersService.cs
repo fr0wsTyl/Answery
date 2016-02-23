@@ -25,6 +25,7 @@
         public void Add(int questionId, string answer)
         {
             this.questions.GetById(questionId).Answer = answer;
+            this.questions.GetById(questionId).IsAnswered = true;
             this.questions.Save();
         }
     }

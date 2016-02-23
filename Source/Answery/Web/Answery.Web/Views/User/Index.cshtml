@@ -164,7 +164,7 @@ else
                         @: AuthorId: "@User.Identity.GetUserId()",
                                             }
                     }, function (data) {
-                        if (data.isSuccessfulAdded) {
+                        if (data.isSuccessfullyAdded) {
                             Materialize.toast('Successfully asked question', 5000);
                         } else {
                             Materialize.toast('Error. Something has happened. Try again later', 5000);

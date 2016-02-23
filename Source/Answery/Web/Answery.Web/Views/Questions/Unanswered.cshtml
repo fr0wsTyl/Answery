@@ -73,18 +73,19 @@
                     Materialize.toast('Answer length should be between ' + MIN_QUESTION_LENGTH + ' and ' + MAX_QUESTION_LENGTH + '. ', 5000);
                 } else {
                     $.post('@Url.Action("Add", "Answers")', {
-                        Answer: textareaValue,
-                        QuestionId: questionId
-                    }),
-                    function(data) {
-                        if (data.isSuccessfulAdded) {
-                            Materialize.toast('Successfully answered', 5000);
-                            $('#modal_' + questionId).closeModal();
-                            $('.question_' + questionId).html(' ');
-                        } else {
-                            Materialize.toast('Error. Something has happened. Try again later', 5000);
-                        }
-                    }
+                            Answer: textareaValue,
+                            QuestionId: questionId
+                        },
+                        function(data) {
+                            console.log(data);
+                            if (data.isSuccessfullyAdded) {
+                                Materialize.toast('Successfully answered', 5000);
+                                $('#modal_' + questionId).closeModal();
+                                $('.question_' + questionId).html(' ');
+                            } else {
+                                Materialize.toast('Error. Something has happened. Try again later', 5000);
+                            }
+                        });
                 }
             });
         });

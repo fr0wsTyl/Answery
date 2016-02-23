@@ -19,12 +19,9 @@
             if (ModelState.IsValid)
             {
                 this.answersService.Add(questionInput.QuestionId, questionInput.Answer);
-                return Json(new {isSuccessfulAdded = true});
+                return Json(new { isSuccessfullyAdded = true });
             }
-            else
-            {
-                return Json(new {isSuccessfulAdded = false});
-            }
+            return Json(new { isSuccessfullyAdded = false });
         }
     }
 }
