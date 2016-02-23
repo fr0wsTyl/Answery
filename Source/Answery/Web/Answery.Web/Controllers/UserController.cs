@@ -28,18 +28,18 @@
         public ActionResult Index(string username)
         {
 
-           
+
 
             var user = this.usersService.GetUserByUsername(username);
             var mapper = AutoMapperConfig.Configuration.CreateMapper();
             var userToShow = mapper.Map<User, UserViewModel>(user);
-            this.commentsService.Add(new Comment
-            {
-                QuestionId = 2,
-                CreatedOn = DateTime.Now,
-                Content = "NE WE PAK LI WE",
-                Question = this.questionsService.GetById(2)
-            });
+            //this.commentsService.Add(new Comment
+            //{
+            //    QuestionId = 2,
+            //    CreatedOn = DateTime.Now,
+            //    Content = "NE WE PAK LI WE",
+            //    Question = this.questionsService.GetById(2)
+            //});
             if (user != null)
             {
                 
