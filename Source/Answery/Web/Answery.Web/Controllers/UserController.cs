@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
+    using System.Web.Security;
     using Data.Models;
     using Infrastructure.Mapping;
     using Microsoft.AspNet.Identity;
@@ -23,6 +24,14 @@
             this.usersService = usersService;
             this.questionsService = questionsService;
             this.commentsService = commentsService;
+        }
+
+        [Authorize]
+        public int GetUnanswered()
+        {
+            var user = usersService.GetUserByUsername(User.Identity.Name);
+            var questions = this.questionsService.GetAllUnAnsweredBy(user.Id);
+            return questions.Where(question => question.IsAnswered == false).Count();
         }
 
         public ActionResult Index(string username)
@@ -54,10 +63,6 @@
                     }
                     question.Comments = commentsAsViewModels;
                 }
-
-                var unasnwrede =
-                    userToShow.Questions.Where(question => question.IsAnswered == false).Count();
-
             }
 
             return View(userToShow);
