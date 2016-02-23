@@ -16,6 +16,11 @@
         [MaxLength(600)]
         public string Content { get; set; }
 
+        [Required]
+        [MinLength(5)]
+        [MaxLength(600)]
+        public string Answer { get; set; }
+
         public bool IsAnswered { get; set; }
 
         public string ReceiverId { get; set; }
