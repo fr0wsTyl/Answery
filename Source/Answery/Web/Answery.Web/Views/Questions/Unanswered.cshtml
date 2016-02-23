@@ -3,29 +3,54 @@
 @{
     ViewBag.Title = "Unanswered questions | Answery";
 }
-@Html.Partial("PageTitlePartial", "Unanswered questions");
-
+@Html.Partial("PageTitlePartial", "Unanswered questions")
 
 @foreach (var question in Model.Questions)
 {
-    <div class="card-profile-title">
-        <div class="row">
-            <div class="col s10">
-                <span class="grey-text text-darken-1 ultra-small">Asked on 23 February 2016 07:26</span>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col s12 black-text">
-                <p>
-                    I am a very simple wall post. I am good at containing <a href="#">#small</a> bits of <a href="#">#information</a>. I require little more information to use effectively.
-                </p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col s2 offset-s10">
-                <span class="grey-text text-darken-1 ultra-small">
-                </span>
+    <div id="profile-page-wall-posts" class="row">
+        <div class="col s12">
+            <div id="profile-page-wall-post" class="card">
+                <div class="card-profile-title">
+                    <div class="row">
+                        <div class="col s10">
+                            <span class="grey-text text-darken-1 ultra-small">Asked on @question.CreatedOn.ToString("dd MMMM yyyy hh:mm")</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 black-text">
+                            <p>
+                                @question.Content
+                            </p>
+                        </div>
+                        <a class="btn-large col s12 btn waves-effect waves-light indigo modal-trigger" href="#modal_@question.Id">Answer</a>
+
+                        <!-- Modal Structure -->
+                        <div id="modal_@question.Id" class="modal black-text">
+                            <div class="modal-content">
+                                <h4 class="center">Answer to the question</h4>
+                                <p>@question.Content</p>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+}
+
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+            $('.modal-trigger').leanModal();
+        });
+
+
+    </script>
 }
