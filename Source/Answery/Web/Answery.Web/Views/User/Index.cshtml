@@ -30,11 +30,11 @@ else
                             }
                         </div>
                         <div class="col s2 center-align">
-                            <h4 class="card-title grey-text text-darken-4">@Model.AnsweredQuestions</h4>
+                            <h4 class="card-title grey-text text-darken-4">@Model.Questions.Where(q => q.IsAnswered).Count()</h4>
                             <p class="medium-small grey-text">Answered questions</p>
                         </div>
                         <div class="col s2 center-align">
-                            <h4 class="card-title grey-text text-darken-4">@Model.UnAnsweredQuestions</h4>
+                            <h4 class="card-title grey-text text-darken-4">@Model.Questions.Where(q => q.IsAnswered == false).Count()</h4>
                             <p class="medium-small grey-text">Unanswered questions</p>
                         </div>
                         <div class="col s2 center-align">
