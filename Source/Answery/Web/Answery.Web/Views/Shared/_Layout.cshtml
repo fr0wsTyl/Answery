@@ -38,7 +38,7 @@
                     {
                         <li class="black-text center">Hi @HttpContext.Current.User.Identity.Name!</li>
                         <hr/>
-                        <li>@Html.ActionLink("Account", "Index", "Manage")</li>
+                        <li>@Html.ActionLink("Account", "Edit", "Manage")</li>
                         <li>@Html.ActionLink("Blog", "Index", "Blog")</li>
                         <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
                     }
@@ -81,11 +81,6 @@
 <script>
     $(".button-collapse").sideNav();
 </script>
-@section Scripts {
-    @*<script>
-                $(".button-collapse").sideNav();
-            </script>*@
-}
 @RenderSection("scripts", required: false)
 </body>
 </html>
