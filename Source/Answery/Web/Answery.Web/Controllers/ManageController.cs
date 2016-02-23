@@ -214,11 +214,11 @@ namespace Answery.Web.Controllers
 
         //
         // GET: /Manage/ChangePassword
-        public ActionResult ChangePassword()
+        public Action
+Result ChangePassword()
         {
             return View();
         }
-
         //
         // POST: /Manage/ChangePassword
         [HttpPost]

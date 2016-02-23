@@ -33,6 +33,12 @@
             return View(model);
         }
 
+        [HttpGet]
+        public ActionResult Asked()
+        {
+            return View();
+        }
+
         [HttpPost]
         public JsonResult Add(QuestionViewModel questionInput)
         {
