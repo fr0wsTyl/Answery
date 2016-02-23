@@ -17,14 +17,15 @@
             this.questions = questions;
         }
 
-        public IQueryable<Question> GetByQuestionId(int questionId)
+        public string GetByQuestionId(int questionId)
         {
-            throw new NotImplementedException();
+            return this.questions.GetById(questionId).Answer;
         }
 
         public void Add(int questionId, string answer)
         {
-            throw new NotImplementedException();
+            this.questions.GetById(questionId).Answer = answer;
+            this.questions.Save();
         }
     }
 }

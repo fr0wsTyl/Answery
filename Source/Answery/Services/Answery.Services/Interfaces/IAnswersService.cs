@@ -6,7 +6,7 @@
 
     public interface IAnswersService
     {
-        IQueryable<Question> GetByQuestionId(int questionId);
+        string GetByQuestionId(int questionId);
 
         void Add(int questionId, string answer);
     }
