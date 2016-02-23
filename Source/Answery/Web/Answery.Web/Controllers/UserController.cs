@@ -49,7 +49,7 @@
             if (user != null)
             {
                 
-                var questions = this.questionsService.GetAllUnAnsweredBy(user.Id);
+                var questions = this.questionsService.GetAllAnsweredBy(user.Id);
                 userToShow.Questions = questions.To<QuestionViewModel>().ToList();
                 foreach (var question in userToShow.Questions)
                 {
