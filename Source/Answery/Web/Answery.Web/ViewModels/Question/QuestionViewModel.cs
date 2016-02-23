@@ -36,6 +36,8 @@
 
         public virtual User Author { get; set; }
 
+        public DateTime? AnsweredOn { get; set; }
+
         public virtual IEnumerable<CommentViewModel> Comments { get; set; }
         public void CreateMappings(IMapperConfiguration configuration)
         {

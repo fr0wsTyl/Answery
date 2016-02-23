@@ -31,7 +31,7 @@
 
         public virtual User Author { get; set; }
 
-        public DateTime AnsweredOn { get; set; }
+        public DateTime? AnsweredOn { get; set; }
 
         public virtual IEnumerable<Comment> Comments
         {

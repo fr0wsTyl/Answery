@@ -26,6 +26,15 @@
                             </div>
                             <hr class="black"/>
                             <div class="row">
+                                <div class="col s10">
+                                    <span class="text-darken-2 ultra-small light-green-text">Answered on @if (question.AnsweredOn != null)
+                                                                                                  {
+                                                                                                      <span>@question.AnsweredOn.Value.ToString("dd MMMM yyyy hh:mm")</span>
+                                                                                                  }
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="row">
                                 <div class="col s12 black-text">
                                     <p class="bold">
                                         @question.Answer
