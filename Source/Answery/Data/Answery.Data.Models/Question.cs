@@ -6,10 +6,9 @@
     using Common.Models;
     public class Question : BaseModel<int>
     {
-        private IEnumerable<Comment> comments; 
         public Question()
         {
-            this.comments = new HashSet<Comment>();
+            this.Comments = new HashSet<Comment>();
             this.Likes = new HashSet<Like>();
         }
 
@@ -36,11 +35,7 @@
 
         public IEnumerable<Like> Likes { get; set; } 
 
-        public virtual IEnumerable<Comment> Comments
-        {
-            get { return this.comments; }
-            set { this.comments = value; }
-        }
+        public IEnumerable<Comment> Comments { get; set; } 
 
     }
 }

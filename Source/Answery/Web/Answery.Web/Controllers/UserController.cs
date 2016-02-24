@@ -54,14 +54,14 @@
                 {
                     var comments = this.commentsService.GetByQuestionId(question.Id).ToList();
                     var likes = this.likesService.GetAllByQuestionId(question.Id).ToList();
-                    //List<CommentViewModel> commentsAsViewModels = new List<CommentViewModel>();
-                    //foreach (var comment in comments)
-                    //{
+                    List<CommentViewModel> commentsAsViewModels = new List<CommentViewModel>();
+                    foreach (var comment in comments)
+                    {
 
-                    //    var commentAsViewModel = mapper.Map<Comment, CommentViewModel>(comment);
-                    //    commentsAsViewModels.Add(commentAsViewModel);
-                    //}
-                    //question.Comments = commentsAsViewModels;
+                        var commentAsViewModel = mapper.Map<Comment, CommentViewModel>(comment);
+                        commentsAsViewModels.Add(commentAsViewModel);
+                    }
+                    question.Comments = commentsAsViewModels;
 
                     List<LikeViewModel> likesViewModels = new List<LikeViewModel>();
                     foreach (var like in likes)
@@ -71,7 +71,9 @@
                         likesViewModels.Add(likeAsAViewModel);
                     }
                     question.Likes = likesViewModels;
+                    question.Comments = commentsAsViewModels;
                 }
+                userToShow.Likes = this.likesService.GetAllByUser(user.Id).To<LikeViewModel>();
                 return View(userToShow);
             }
             else

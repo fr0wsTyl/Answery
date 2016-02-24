@@ -26,7 +26,6 @@
 
         public IQueryable<Comment> GetByQuestionId(int id)
         {   
-            var ques = this.questions.GetById(id).Comments.ToList();
             return this.questions.GetById(id).Comments.AsQueryable();
         }
 
