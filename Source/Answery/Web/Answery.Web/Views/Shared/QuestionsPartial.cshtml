@@ -46,9 +46,8 @@
                             <hr />
                             <br />
                             <div class="row">
-                                <div class="col s3">
+                                <div class="col s4">
                                     <button data-question-id="@question.Id" class="btn-floating waves-effect waves-light red like-question"><i class="material-icons">thumb_up</i></button>
-                                    <br />
                                     <span>
                                         @if (question.Likes != null)
                                         {
@@ -66,26 +65,11 @@
                                 </div>
                                 <div class="col s3 offset-s5">
                                     <button data-question-id="@question.Id" class="btn-floating waves-effect waves-light red like-question"><i class="material-icons">comment</i></button>
-                                    <span class="black-text"> comments</span>
+                                    <button class="btn btn-flat black-text post-comment-btn" data-question-id="@question.Id">@question.Comments.Count() comments</button>
                                     <br />
-                                    <span>
-                                        <span class="black-text flow-text">Post a Comment</span>
-                                    </span>
-                                    <div class="grey-text text-darken-1 ultra-small">
-                                        @if (question.Comments != null)
-                                        {
-                                            foreach (var comment in question.Comments)
-                                            {
-                                                <div>comment.Content</div>
-                                            }
-                                        }@*@if (question.Comments != null)
-                                        {
-                                        <div>@question.Comments.Count() comments</div>
-                                        }*@
-                                    </div>
                                 </div>
 
-                                <div class="row question_id_@question.Id">
+                                <div class="row question_id_@question.Id hide">
                                     <div class="col s12 black-text">
                                         <br />
                                         <hr />

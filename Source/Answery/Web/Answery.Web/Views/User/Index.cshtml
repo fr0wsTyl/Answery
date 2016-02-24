@@ -109,7 +109,7 @@ else
                 <div class="card amber darken-2">
                     <div class="card-content white-text center-align">
                         <p class="card-title">
-                            <i class="mdi-social-group-add"></i> @Model.Likes.Count()
+                            <i class="mdi-social-group-add"></i> @Model.LikesThatUserHas
                         </p>
                         <p>Question likes</p>
                     </div>
@@ -117,7 +117,7 @@ else
                 <div class="card grey darken-2">
                     <div class="card-content white-text center-align">
                         <p class="card-title">
-                            <i class="mdi-social-group-add"></i> 1
+                            <i class="mdi-social-group-add"></i> @Model.CommentsThatUserHas
                         </p>
                         <p>Comments</p>
                     </div>
@@ -198,6 +198,13 @@ else
                             Materialize.toast('Error. Something has happened. Try again later', 5000);
                         }
                     });
+            });
+
+            $('.post-comment-btn').on('click', function (btn) {
+                var questionId = $(btn.target).attr('data-question-id');
+                console.log(questionId);
+                $('.question_id_' + questionId).removeClass("hide");
+
             });
 
             $('.comment-button').on('click', function (btn) {
