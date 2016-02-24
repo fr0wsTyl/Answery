@@ -10,6 +10,8 @@
 
         public int QuestionId { get; set; }
 
+        public bool IsLiked { get; set; }
+
         public virtual Question Question { get; set; }
     }
 }

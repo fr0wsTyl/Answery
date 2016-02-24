@@ -8,6 +8,7 @@
     using Data.Models;
     using Infrastructure.Mapping;
     using Infrastructure.Mapping.MvcTemplate.Web.Infrastructure.Mapping;
+    using Like;
     using Question;
 
     public class UserViewModel : IMapFrom<User>, IMapTo<User>, IHaveCustomMappings
@@ -30,6 +31,8 @@
         public DateTime CreatedOn { get; set; }
 
         public int AnsweredQuestions { get; set; }
+
+        public virtual IEnumerable<LikeViewModel> Likes { get; set; }
 
         public int UnAnsweredQuestions { get; set; }
 

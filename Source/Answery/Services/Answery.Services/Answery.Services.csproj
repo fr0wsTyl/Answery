@@ -56,10 +56,12 @@
   <ItemGroup>
     <Compile Include="Interfaces\ICommentsService.cs" />
     <Compile Include="Interfaces\IAnswersService.cs" />
+    <Compile Include="Interfaces\ILikesService.cs" />
     <Compile Include="Interfaces\IQuestionsService.cs" />
     <Compile Include="Interfaces\IUsersService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AnswersService.cs" />
+    <Compile Include="LikesService.cs" />
     <Compile Include="QuestionsService.cs" />
     <Compile Include="CommentsService.cs" />
     <Compile Include="UsersService.cs" />

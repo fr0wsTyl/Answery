@@ -9,6 +9,7 @@
     using Data.Models;
     using Infrastructure.Mapping;
     using Infrastructure.Mapping.MvcTemplate.Web.Infrastructure.Mapping;
+    using Like;
     using User;
 
     public class QuestionViewModel : IMapFrom<Question>, IMapTo<Question>, IHaveCustomMappings
@@ -38,11 +39,19 @@
 
         public DateTime? AnsweredOn { get; set; }
 
+        public IEnumerable<LikeViewModel> Likes { get; set; }
+
         public virtual IEnumerable<CommentViewModel> Comments { get; set; }
         public void CreateMappings(IMapperConfiguration configuration)
         {
             configuration.CreateMap<Question, QuestionViewModel>()
                 .ForMember(x => x.Comments, opt => opt.Ignore());
+
+            configuration.CreateMap<Question, QuestionViewModel>()
+                .ForMember(x => x.Likes, opt => opt.Ignore());
+
+            configuration.CreateMap<QuestionViewModel, Question>()
+                .ForMember(x => x.Likes, opt => opt.Ignore());
         }
     }
 }

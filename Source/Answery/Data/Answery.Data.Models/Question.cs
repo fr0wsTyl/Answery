@@ -10,6 +10,7 @@
         public Question()
         {
             this.comments = new HashSet<Comment>();
+            this.Likes = new HashSet<Like>();
         }
 
         [Required]
@@ -32,6 +33,8 @@
         public virtual User Author { get; set; }
 
         public DateTime? AnsweredOn { get; set; }
+
+        public IEnumerable<Like> Likes { get; set; } 
 
         public virtual IEnumerable<Comment> Comments
         {

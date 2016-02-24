@@ -26,7 +26,7 @@ else
                             <p class="medium-small grey-text">Member since @Model.CreatedOn.Date.ToString("yyyy MMMM dd")</p>
                             @if (User.Identity.Name == Model.Username)
                             {
-                                @Html.ActionLink("EDIT INFORMATION", "Edit","Manage", " " , new {@class = "medium-small back large bold black-text" })
+                                @Html.ActionLink("EDIT INFORMATION", "Edit", "Manage", " ", new { @class = "medium-small back large bold black-text" })
                             }
                         </div>
                         <div class="col s2 center-align">
@@ -169,7 +169,7 @@ else
                         @if (Request.IsAuthenticated)
                     {
                         @: AuthorId: "@User.Identity.GetUserId()",
-                                            }
+                                                                    }
                     }, function (data) {
                         if (data.isSuccessfullyAdded) {
                             Materialize.toast('Successfully asked question', 5000);
@@ -179,6 +179,30 @@ else
                     });
                 }
             });
+
+            $(document).ready(function () {
+                $('.like-question').on('click', function (btn) {
+                    var questionId = $(btn.target).attr('data-question-id');
+                    $.post('@Url.Action("Like", "Likes")', {
+                        QuestionId: questionId,
+                        IsLiked: true,
+                        @if (Request.IsAuthenticated)
+                    {
+                        @: LikedByUserId: "@User.Identity.GetUserId()",
+                                                                    }
+                    },
+                        function (data) {
+                            console.log(data);
+                            if (data.isSuccessfullyAdded) {
+                                Materialize.toast('Successfully liked the question', 5000);
+                            } else {
+                                Materialize.toast('Error. Something has happened. Try again later', 5000);
+                            }
+                        });
+                });
+            });
+
+
         </script>
     }
 }

@@ -15,6 +15,7 @@
         {
             this.Questions = new HashSet<Question>();
             this.QuestionsAsked = new HashSet<Question>();
+            this.Likes = new HashSet<Like>();
         }
 
         [Required]
@@ -42,6 +43,8 @@
         public DateTime? DeletedOn { get; set; }
 
         public virtual IEnumerable<Question> Questions { get; set; }
+
+        public virtual IEnumerable<Like> Likes { get; set; }
 
         public virtual IEnumerable<Question> QuestionsAsked { get; set; }
 
