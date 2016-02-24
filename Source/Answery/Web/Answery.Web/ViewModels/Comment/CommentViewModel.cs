@@ -1,5 +1,6 @@
 ﻿namespace Answery.Web.ViewModels.Comment
 {
+    using System;
     using System.Collections.Generic;
     using User;
     using Question;
@@ -22,5 +23,7 @@
         public string AuthorId { get; set; }
 
         public virtual User Author { get; set; }
+
+        public DateTime CreatedOn { get; set; }
     }
 }
