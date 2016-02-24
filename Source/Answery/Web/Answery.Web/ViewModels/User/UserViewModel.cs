@@ -42,6 +42,7 @@
         public IEnumerable<QuestionViewModel> Questions { get; set; }
 
         public int LikesThatUserHas { get; set; }
+
         public int CommentsThatUserHas { get; set; }
 
         public void CreateMappings(IMapperConfiguration configuration)

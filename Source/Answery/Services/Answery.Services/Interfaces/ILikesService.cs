@@ -15,5 +15,7 @@
         Like GetById(int likeId);
 
         void Add(Like like);
+
+        int GetAllThatUserHas(string username);
     }
 }

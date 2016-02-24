@@ -74,6 +74,8 @@
                     question.Comments = commentsAsViewModels;
                 }
                 userToShow.Likes = this.likesService.GetAllByUser(user.Id).To<LikeViewModel>();
+                userToShow.LikesThatUserHas = this.likesService.GetAllThatUserHas(user.Id);
+                userToShow.CommentsThatUserHas = this.commentsService.GetAllThatUserHas(user.Id);
                 return View(userToShow);
             }
             else

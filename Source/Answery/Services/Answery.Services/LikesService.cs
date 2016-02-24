@@ -43,5 +43,10 @@
             this.likes.Add(like);
             this.likes.Save();
         }
+
+        public int GetAllThatUserHas(string username)
+        {
+            return this.likes.All().Where(like => like.Question.ReceiverId == username).Count();
+        }
     }
 }

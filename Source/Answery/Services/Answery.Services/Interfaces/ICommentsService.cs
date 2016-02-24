@@ -11,5 +11,7 @@
         IQueryable<Comment> GetByQuestionId(int id);
 
         Comment Add(Comment comment);
+
+        int GetAllThatUserHas(string username);
     }
 }

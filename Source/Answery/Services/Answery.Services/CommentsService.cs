@@ -35,5 +35,10 @@
             comments.Save();
             return comment;
         }
+
+        public int GetAllThatUserHas(string username)
+        {
+            return this.comments.All().Where(comment => comment.Question.ReceiverId == username).Count();
+        }
     }
 }
