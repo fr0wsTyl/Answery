@@ -1,5 +1,6 @@
 ﻿namespace Answery.Web.Controllers
 {
+    using System;
     using System.Web.Mvc;
     using Data.Models;
     using Infrastructure.Mapping;
@@ -33,6 +34,7 @@
                     commentAsAModel.Author = this.usersService.GetUserById(commentAsAModel.AuthorId);
                 }
                 commentAsAModel.Question = this.questionsService.GetById(commentAsAModel.QuestionId);
+                commentAsAModel.CreatedOn = DateTime.Now;
 
                 this.commentsService.Add(commentAsAModel);
                 return Json(new { isSuccessfullyAdded = true });

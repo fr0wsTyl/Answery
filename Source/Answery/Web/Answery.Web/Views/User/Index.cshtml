@@ -169,7 +169,7 @@ else
                         @if (Request.IsAuthenticated)
                     {
                         @: AuthorId: "@User.Identity.GetUserId()",
-                                                                    }
+                                                                                            }
                     }, function (data) {
                         if (data.isSuccessfullyAdded) {
                             Materialize.toast('Successfully asked question', 5000);
@@ -179,27 +179,46 @@ else
                     });
                 }
             });
-            $(document).ready(function () {
-                $('.like-question').on('click', function (btn) {
-                    var questionId = $(btn.target).parent().attr('data-question-id');
-                    console.log(questionId)
-                    $.post('@Url.Action("Like", "Likes")', {
-                        QuestionId: questionId,
-                        IsLiked: true,
-                        @if (Request.IsAuthenticated)
+            $('.like-question').on('click', function (btn) {
+                var questionId = $(btn.target).parent().attr('data-question-id');
+                console.log(questionId)
+                $.post('@Url.Action("Like", "Likes")', {
+                    QuestionId: questionId,
+                    IsLiked: true,
+                    @if (Request.IsAuthenticated)
                             {
                                 @: LikedByUserId: "@User.Identity.GetUserId()",
-                                }
-                        },
-                        function (data) {
-                            console.log(data);
-                            if (data.isSuccessfullyAdded) {
-                                Materialize.toast('Successfully liked the question', 5000);
-                            } else {
-                                Materialize.toast('Error. Something has happened. Try again later', 5000);
+                                                    }
+                },
+                    function (data) {
+                        console.log(data);
+                        if (data.isSuccessfullyAdded) {
+                            Materialize.toast('Successfully liked the question', 5000);
+                        } else {
+                            Materialize.toast('Error. Something has happened. Try again later', 5000);
+                        }
+                    });
+            });
+
+            $('.comment-button').on('click', function (btn) {
+                var questionId = $(btn.target).attr('data-question-id');
+                var textArea = $('.question-textarea-id-' + questionId).val();
+                $.post('@Url.Action("Comment", "Comments")', {
+                    QuestionId: questionId,
+                    Content: textArea,
+                    @if (Request.IsAuthenticated)
+                        {
+                            @: AuthorId: "@User.Identity.GetUserId()",
                             }
-                        });
-                });
+                    },
+                    function (data) {
+                        console.log(data);
+                        if (data.isSuccessfullyAdded) {
+                            Materialize.toast('Successfully commented the question', 5000);
+                        } else {
+                            Materialize.toast('Error. Something has happened. Try again later', 5000);
+                        }
+                    });
             });
         </script>
     }
