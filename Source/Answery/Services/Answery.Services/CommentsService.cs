@@ -25,8 +25,8 @@
         }
 
         public IQueryable<Comment> GetByQuestionId(int id)
-        {   
-            return this.questions.GetById(id).Comments.AsQueryable();
+        {
+            return this.comments.All().Where(comment => comment.QuestionId == id);
         }
 
         public Comment Add(Comment comment)
