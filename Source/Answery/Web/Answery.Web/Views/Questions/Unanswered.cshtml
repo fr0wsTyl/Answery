@@ -9,46 +9,50 @@
 {
     foreach (var question in Model.Questions)
     {
-        <div id="profile-page-wall-posts" class="row question_@question.Id">
-            <div class="col s12">
-                <div id="profile-page-wall-post" class="card">
-                    <div class="card-profile-title">
-                        <div class="row">
-                            <div class="col s10">
-                                <span class="grey-text text-darken-1 ultra-small">Asked on @question.CreatedOn.ToString("dd MMMM yyyy hh:mm")</span>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col s12 black-text">
-                                <p>
-                                    @question.Content
-                                </p>
-                            </div>
-                            <a class="btn-large col s12 btn waves-effect waves-light indigo modal-trigger" href="#modal_@question.Id">Answer</a>
-
-                            <div id="modal_@question.Id" class="modal black-text">
-                                <div class="modal-content">
-                                    <h4 class="center">Answer to the question</h4>
-                                    <p>@question.Content</p>
+        <div class="row">
+            <div class="col s8 offset-s2">
+                <div id="profile-page-wall-posts" class="row question_@question.Id">
+                    <div class="col s12">
+                        <div id="profile-page-wall-post" class="card">
+                            <div class="card-profile-title">
+                                <div class="row">
+                                    <div class="col s10">
+                                        <span class="grey-text text-darken-1 ultra-small">Asked on @question.CreatedOn.ToString("dd MMMM yyyy hh:mm")</span>
+                                    </div>
                                 </div>
-                                <hr class="white"/>
-                                <div id="profile-page-wall" class="col s12">
-                                    <div id="profile-page-wall-share" class="row">
-                                        <div class="col m12">
-                                            <div id="UpdateStatus" class="tab-content col m12">
-                                                <div class="row">
-                                                    <div class="input-field col s12">
-                                                        <textarea id="asnwer-content" class="materialize-textarea black-text question_id_@question.Id"></textarea>
-                                                        <label for="textarea">Your answer</label>
+                                <div class="row">
+                                    <div class="col s12 black-text">
+                                        <p>
+                                            @question.Content
+                                        </p>
+                                    </div>
+                                    <a class="btn-large col s12 btn waves-effect waves-light indigo modal-trigger" href="#modal_@question.Id">Answer</a>
+
+                                    <div id="modal_@question.Id" class="modal black-text">
+                                        <div class="modal-content">
+                                            <h4 class="center">Answer to the question</h4>
+                                            <p>@question.Content</p>
+                                        </div>
+                                        <hr class="white" />
+                                        <div id="profile-page-wall" class="col s12">
+                                            <div id="profile-page-wall-share" class="row">
+                                                <div class="col m12">
+                                                    <div id="UpdateStatus" class="tab-content col m12">
+                                                        <div class="row">
+                                                            <div class="input-field col s12">
+                                                                <textarea id="asnwer-content" class="materialize-textarea black-text question_id_@question.Id"></textarea>
+                                                                <label for="textarea">Your answer</label>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="modal-footer">
+                                            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Back to questions</a>
+                                            <a href="#!" data-question-id="@question.Id" class="answer-question-btn modal-action waves-effect white blue-text btn">Answer</a>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Back to questions</a>
-                                    <a href="#!" data-question-id="@question.Id" class="answer-question-btn modal-action waves-effect white blue-text btn">Answer</a>
                                 </div>
                             </div>
                         </div>
