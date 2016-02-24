@@ -31,7 +31,7 @@
                     {
 
                     }
-                    <li>@Html.ActionLink("Blog", "Index", "Blog")</li>
+                    <li>@Html.ActionLink("Blog", "Index", new {area = "Blog", controller = "Blogs"})</li>
                 </ul>
                 <ul class="side-nav" id="mobile-demo">
                     @if (Request.IsAuthenticated)
@@ -39,7 +39,7 @@
                         <li class="black-text center">Hi @HttpContext.Current.User.Identity.Name!</li>
                         <hr/>
                         <li>@Html.ActionLink("Account", "Edit", "Manage")</li>
-                        <li>@Html.ActionLink("Blog", "Index", "Blog")</li>
+                        <li>@Html.ActionLink("Blog", "Index", new { area = "Blog", controller = "Blogs" })</li>
                         <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
                     }
                     else
@@ -47,7 +47,7 @@
                         <li>@Html.ActionLink("Home", "Index", "Home")</li>
                         <li>@Html.ActionLink("Login", "Login", "Account")</li>
                         <li>@Html.ActionLink("Register", "Register", "Account")</li>
-                        <li>@Html.ActionLink("Blog", "Index", "Blog")</li>
+                        <li>@Html.ActionLink("Blog", "Index", new { area = "Blog", controller = "Blogs" })</li>
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")
