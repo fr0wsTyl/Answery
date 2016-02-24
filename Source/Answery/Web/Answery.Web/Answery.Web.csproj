@@ -212,6 +212,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Blog\BlogAreaRegistration.cs" />
+    <Compile Include="Areas\Blog\Controllers\BlogsController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AnswerController.cs" />
     <Compile Include="Controllers\ChatController.cs" />
@@ -254,6 +255,13 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Areas\Blog\Views\web.config" />
+    <Content Include="Areas\Blog\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Blog\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Blog\Views\Blogs\Create.cshtml" />
+    <Content Include="Areas\Blog\Views\Blogs\Delete.cshtml" />
+    <Content Include="Areas\Blog\Views\Blogs\Details.cshtml" />
+    <Content Include="Areas\Blog\Views\Blogs\Edit.cshtml" />
+    <Content Include="Areas\Blog\Views\Blogs\Index.cshtml" />
     <None Include="Properties\PublishProfiles\Answery.pubxml" />
     <None Include="Properties\PublishProfiles\ftp.Smarterasp.net.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -315,9 +323,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Blog\Controllers\" />
     <Folder Include="Areas\Blog\Models\" />
-    <Folder Include="Areas\Blog\Views\Shared\" />
     <Folder Include="fonts\material-design-icons\" />
     <Folder Include="fonts\roboto\" />
   </ItemGroup>

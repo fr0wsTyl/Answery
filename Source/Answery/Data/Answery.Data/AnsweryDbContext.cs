@@ -25,6 +25,8 @@
 
         public virtual IDbSet<Like> Likes { get; set; } 
 
+        public virtual IDbSet<Blog> Blogs { get; set; } 
+
         public override int SaveChanges()
         {
             this.ApplyAuditInfoRules();
