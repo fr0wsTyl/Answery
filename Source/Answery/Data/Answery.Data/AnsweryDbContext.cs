@@ -10,7 +10,7 @@
     public class AnsweryDbContext : IdentityDbContext<User>
     {
         public AnsweryDbContext()
-            : base("AnsweryDbContext", throwIfV1Schema: false)
+            : base("Answery", throwIfV1Schema: false)
         {
         }
         
@@ -20,7 +20,10 @@
         }
 
         public virtual IDbSet<Question> Questions { get; set; } 
+
         public virtual IDbSet<Comment> Comments { get; set; } 
+
+        public virtual IDbSet<Like> Likes { get; set; } 
 
         public override int SaveChanges()
         {

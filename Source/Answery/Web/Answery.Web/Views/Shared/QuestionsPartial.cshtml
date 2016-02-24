@@ -46,6 +46,10 @@
                             <div class="row">
                                 <div class="col s2 offset-s10">
                                     <button data-question-id="@question.Id" class="btn-floating btn-large waves-effect waves-light red like-question"><i class="material-icons">thumb_up</i></button>
+                                    <span>@if (question.Likes != null)
+                                          {
+                                              <span>@question.Likes.Count()</span>
+                                          } likes</span>
                                     <span class="grey-text text-darken-1 ultra-small">
                                         @if (question.Comments != null)
                                         {
@@ -54,9 +58,9 @@
                                                 <div>comment.Content</div>
                                             }
                                         }@*@if (question.Comments != null)
-                                    {
-                                    <div>@question.Comments.Count() comments</div>
-                                    }*@
+                                        {
+                                        <div>@question.Comments.Count() comments</div>
+                                        }*@
                                     </span>
                                 </div>
                             </div>

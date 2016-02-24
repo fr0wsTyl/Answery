@@ -179,18 +179,18 @@ else
                     });
                 }
             });
-
             $(document).ready(function () {
                 $('.like-question').on('click', function (btn) {
-                    var questionId = $(btn.target).attr('data-question-id');
+                    var questionId = $(btn.target).parent().attr('data-question-id');
+                    console.log(questionId)
                     $.post('@Url.Action("Like", "Likes")', {
                         QuestionId: questionId,
                         IsLiked: true,
                         @if (Request.IsAuthenticated)
-                    {
-                        @: LikedByUserId: "@User.Identity.GetUserId()",
-                                                                    }
-                    },
+                            {
+                                @: LikedByUserId: "@User.Identity.GetUserId()",
+                                }
+                        },
                         function (data) {
                             console.log(data);
                             if (data.isSuccessfullyAdded) {
@@ -201,8 +201,6 @@ else
                         });
                 });
             });
-
-
         </script>
     }
 }

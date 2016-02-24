@@ -1,4 +1,5 @@
 ﻿@using Answery.Web.ViewModels.Question
+@using Microsoft.AspNet.Identity
 @model Answery.Web.ViewModels.Home.IndexViewModel
 @{
     ViewBag.Title = "Home Page | Answery";
@@ -47,4 +48,31 @@ else
 {
     @Html.Partial("PageTitlePartial", "Answered questions");
     @Html.Partial("QuestionsPartial", @Model.Questions);
+}
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $('.like-question').on('click', function (btn) {
+                var questionId = $(btn.target).parent().attr('data-question-id');
+                console.log(questionId)
+                $.post('@Url.Action("Like", "Likes")', {
+                    QuestionId: questionId,
+                    IsLiked: true,
+                    @if (Request.IsAuthenticated)
+                        {
+                            @: LikedByUserId: "@User.Identity.GetUserId()",
+                            }
+                    },
+                    function (data) {
+                        console.log(data);
+                        if (data.isSuccessfullyAdded) {
+                            Materialize.toast('Successfully liked the question', 5000);
+                        } else {
+                            Materialize.toast('Error. Something has happened. Try again later', 5000);
+                        }
+                    });
+            });
+        });
+    </script>
 }
