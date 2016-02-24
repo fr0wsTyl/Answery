@@ -43,8 +43,8 @@
                                     </p>
                                 </div>
                             </div>
-                            <hr/>
-                            <br/>
+                            <hr />
+                            <br />
                             <div class="row">
                                 <div class="col s3">
                                     <button data-question-id="@question.Id" class="btn-floating waves-effect waves-light red like-question"><i class="material-icons">thumb_up</i></button>
@@ -76,7 +76,7 @@
                                 <div class="col s3 offset-s5">
                                     <button data-question-id="@question.Id" class="btn-floating waves-effect waves-light red like-question"><i class="material-icons">comment</i></button>
                                     <span class="black-text"> comments</span>
-                                    <br/>
+                                    <br />
                                     <span>
                                         <span class="black-text flow-text">Post a Comment</span>
                                     </span>
@@ -91,42 +91,51 @@
                                         }@*@if (question.Comments != null)
                                         {
                                         <div>@question.Comments.Count() comments</div>
-                                        }*@</div>
+                                        }*@
+                                    </div>
                                 </div>
-                                
+
                                 <div class="row question_id_@question.Id">
                                     <div class="col s12 black-text">
-                                        <br/>
-                                        <hr/>
+                                        <br />
+                                        <hr />
                                         <h2 class="center flow-text">Comments</h2>
+                                        <div>
+                                            <div class="row">
+                                                <div class="input-field col s12">
+                                                    <textarea id="comment-content" cols="4" class="materialize-textarea black-text question-textarea-id-@question.Id"></textarea>
+                                                    <label for="textarea" class="">Comment</label>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="row black-text">
                                         <div class="col s10 offset-s1">
                                             <ul id="issues-collection" class="collection">
+                                                @if (question.Comments.Any())
+                                                {
                                                 <li class="collection-item avatar">
                                                     <i class="material-icons red circle">comment</i>
                                                     <span class="collection-header">Comments</span>
                                                     <a href="#" class="secondary-content"><i class="material-icons">comment</i></a>
                                                 </li>
-                                                @foreach (var comment in question.Comments)
-                                                {
-                                                    <li class="collection-item">
-                                                        <div class="row">
-                                                            <div class="col s7">
-                                                                <p class="collections-title"><strong>Commented on @comment.CreatedOn</strong></p>
-                                                                <p class="collections-content">Web Project</p>
-                                                            </div>
-                                                            <div class="col s2">
-                                                                <span class="task-cat pink accent-2">P1</span>
-                                                            </div>
-                                                            <div class="col s3">
-                                                                <div class="progress">
-                                                                    <div class="determinate" style="width: 70%"></div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </li>
+                                                    foreach (var comment in question.Comments)
+                                                    {
+                                                         <li class="collection-item">
+                                                             <div class="row">
+                                                                 <div class="col s7">
+                                                                     <p class="collections-title">@*<strong>Commented on @comment.CreatedOn</strong>*@</p>
+                                                                     <p class="collections-content">@comment.Content</p>
+                                                                 </div>
+                                                             </div>
+                                                         </li>
+                                                     }
                                                 }
+                                                else
+                                                {
+                                                    <div class="center">No comments for this question.</div>
+                                                }
+
                                             </ul>
                                         </div>
                                     </div>
