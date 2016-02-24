@@ -38,7 +38,7 @@
                                             <div id="UpdateStatus" class="tab-content col m12">
                                                 <div class="row">
                                                     <div class="input-field col s12">
-                                                        <textarea id="asnwer-content" class="materialize-textarea black-text"></textarea>
+                                                        <textarea id="asnwer-content" class="materialize-textarea black-text question_id_@question.Id"></textarea>
                                                         <label for="textarea">Your answer</label>
                                                     </div>
                                                 </div>
@@ -70,9 +70,10 @@ else
             $('.modal-trigger').leanModal();
             $('.answer-question-btn').on('click', function (btn) {
                 var questionId = $(btn.target).attr('data-question-id');
-                var textareaValue = $('#asnwer-content').val();
+                var textareaValue = $('.question_id_' + questionId).val();
                 var MIN_QUESTION_LENGTH = 3;
                 var MAX_QUESTION_LENGTH = 600;
+                console.log(textareaValue);
                 if (textareaValue.length < MIN_QUESTION_LENGTH || textareaValue.length > MAX_QUESTION_LENGTH) {
                     Materialize.toast('Answer length should be between ' + MIN_QUESTION_LENGTH + ' and ' + MAX_QUESTION_LENGTH + '. ', 5000);
                 } else {
