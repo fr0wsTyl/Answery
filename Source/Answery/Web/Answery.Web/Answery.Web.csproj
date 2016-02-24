@@ -311,6 +311,7 @@
     <Content Include="Views\Shared\PageTitlePartial.cshtml" />
     <Content Include="Views\Questions\Asked.cshtml" />
     <Content Include="Views\Manage\Edit.cshtml" />
+    <Content Include="Views\Shared\LittleQuestionInfoPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

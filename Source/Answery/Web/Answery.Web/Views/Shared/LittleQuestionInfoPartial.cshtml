@@ -1,0 +1,31 @@
+﻿@model Answery.Web.ViewModels.Question.QuestionViewModel
+<div class="row">
+    <div class="col s10">
+        <span class="grey-text text-darken-1 ultra-small">Asked on @Model.CreatedOn.ToString("dd MMMM yyyy hh:mm")</span>
+    </div>
+</div>
+<div class="row">
+    <div class="col s12 black-text">
+        <p class="flow-text">
+            @Model.Content
+        </p>
+    </div>
+</div>
+<hr class="black" />
+<div class="row">
+    <div class="col s10">
+        <span class="text-darken-2 ultra-small light-green-text">
+            Answered on @if (Model.AnsweredOn != null)
+            {
+                <span>@Model.AnsweredOn.Value.ToString("dd MMMM yyyy hh:mm")</span>
+            }
+        </span>
+    </div>
+</div>
+<div class="row">
+    <div class="col s12 black-text">
+        <p class="bold">
+            @Model.Answer
+        </p>
+    </div>
+</div>

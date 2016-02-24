@@ -47,11 +47,16 @@
 else
 {
     @Html.Partial("PageTitlePartial", "Answered questions");
-    <div class="row">
-        <div class="col s8 offset-s2">
-            @Html.Partial("QuestionsPartial", @Model.Questions)
+    
+    foreach (var question in @Model.Questions)
+    {
+        <div class="row">
+            <div class="col s8 offset-s2 white">
+                @Html.Partial("LittleQuestionInfoPartial", question)
+            </div>
         </div>
-    </div>
+        
+    }
 }
 
 @section scripts {
@@ -66,7 +71,7 @@ else
                     @if (Request.IsAuthenticated)
                         {
                             @: LikedByUserId: "@User.Identity.GetUserId()",
-                                                }
+                                                                    }
                 },
                     function (data) {
                         console.log(data);
